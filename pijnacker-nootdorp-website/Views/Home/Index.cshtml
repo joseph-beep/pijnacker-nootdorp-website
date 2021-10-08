@@ -2,8 +2,14 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Pijnacker-Nootdorp</h1>
-    <p>Er is veel vastgoed beschikbaar in deze gemeente.</p>
+<div>
+    <h1 class="display-4">Huizen in Pijnacker-Nootdorp</h1>
+    <form action="/action_page.php">
+        <label for="search">Zoeken:</label>
+        <input type="text" id="search" name="search" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+    </form>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
