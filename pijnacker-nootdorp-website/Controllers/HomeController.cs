@@ -31,6 +31,14 @@ namespace pijnacker_nootdorp_website.Controllers
             return View();
         }
 
+        [Route("contact")]
+        public IActionResult Contact()
+        {
+            List<House> houses = GetHouses();
+
+            return View(houses);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
