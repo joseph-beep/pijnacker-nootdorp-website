@@ -1,0 +1,30 @@
+{
+	"storeys": [
+		{
+			"level": 0,
+			"rooms": [
+				{
+					"type": "BEDROOM",
+					"amount": 5
+				},
+				{
+					"type": "BATHROOM",
+					"amount": 3
+				}
+			]
+		},
+		{
+			"level": 1,
+			"rooms": [
+				{
+					"type": "LIVING_ROOM",
+					"amount": 1
+				},
+				{
+					"type": "KITCHEN",
+					"amount": 2
+				}
+			]
+		}
+	]
+}

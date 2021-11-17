@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="template.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="template.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.19" />
     <PackageReference Include="MySql.Data" Version="8.0.27" />
   </ItemGroup>
