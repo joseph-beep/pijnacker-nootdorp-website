@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MySql.Data.MySqlClient;
 using pijnacker_nootdorp_website.Models;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace pijnacker_nootdorp_website.Controllers
 {
@@ -54,33 +50,33 @@ namespace pijnacker_nootdorp_website.Controllers
             List<House> products = new List<House>();
 
             // verbinding maken met de database
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                // verbinding openen
-                conn.Open();
+            //using (MySqlConnection conn = new MySqlConnection(connectionString))
+            //{
+            //    // verbinding openen
+            //    conn.Open();
 
-                // SQL query die we willen uitvoeren
-                MySqlCommand cmd = new MySqlCommand("select * from houses", conn);
+            //    // SQL query die we willen uitvoeren
+            //    MySqlCommand cmd = new MySqlCommand("select * from houses", conn);
 
-                // resultaat van de query lezen
-                using (var reader = cmd.ExecuteReader())
-                {
-                    // elke keer een regel (of eigenlijk: database rij) lezen
-                    while (reader.Read())
-                    {
-                        House house = new House
-                        {
-                            ID = Convert.ToInt32(reader["id"]),
-                            Address = reader["address"].ToString(),
-                            Price = Convert.ToInt32(reader["price"]),
-                            Description = reader["description"].ToString()
-                        };
+            //    // resultaat van de query lezen
+            //    using (var reader = cmd.ExecuteReader())
+            //    {
+            //        // elke keer een regel (of eigenlijk: database rij) lezen
+            //        while (reader.Read())
+            //        {
+            //            House house = new House
+            //            {
+            //                ID = Convert.ToInt32(reader["id"]),
+            //                Address = reader["address"].ToString(),
+            //                Price = Convert.ToInt32(reader["price"]),
+            //                Description = reader["description"].ToString()
+            //            };
 
-                        // voeg de naam toe aan de lijst met namen
-                        products.Add(house);
-                    }
-                }
-            }
+            //            // voeg de naam toe aan de lijst met namen
+            //            products.Add(house);
+            //        }
+            //    }
+            //}
 
             // return de lijst met namen
             return products;
