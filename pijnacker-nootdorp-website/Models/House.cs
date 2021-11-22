@@ -8,7 +8,7 @@
     public int Price { get; set; }
     public string Description { get; set; }
 
-    public Accessibility? Access { get; set; }
+    public int Access { get; set; }
 
     public int BuildYear { get; set; }
 
