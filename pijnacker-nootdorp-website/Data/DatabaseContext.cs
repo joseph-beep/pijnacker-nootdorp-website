@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-public class SchoolContext : DbContext
+public class DatabaseContext : DbContext
 {
-    public SchoolContext(DbContextOptions<SchoolContext> options) : base(options)
+    public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
     {
     }
 
