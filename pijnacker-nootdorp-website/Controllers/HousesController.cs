@@ -24,6 +24,24 @@ namespace pijnacker_nootdorp_website.Controllers
         }
 
         // GET: Houses/Details/5
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    var house = await _context.Houses
+        //        .FirstOrDefaultAsync(m => m.Id == id);
+        //    if (house == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return View(house);
+        //}
+
+        [Route("houses/{id}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -31,8 +49,7 @@ namespace pijnacker_nootdorp_website.Controllers
                 return NotFound();
             }
 
-            var house = await _context.Houses
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var house = await _context.Houses.FirstOrDefaultAsync(m => m.Id == id);
             if (house == null)
             {
                 return NotFound();
