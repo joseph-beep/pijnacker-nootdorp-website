@@ -20,13 +20,15 @@ namespace pijnacker_nootdorp_website.Controllers
         {
             List<House> houses = GetHouses();
 
-            if (HttpContext.Session.TryGetValue("user", out byte[] userId))
+            if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
             {
-                ViewData["user"] = userId.ToString();
+                string userId = Encoding.ASCII.GetString(userId_raw);
+
+                ViewData["user"] = userId;
             }
             else
             {
-                ViewData["user"] = "";
+                ViewData["user"] = "Niemand";
             }
 
             return View(houses);
