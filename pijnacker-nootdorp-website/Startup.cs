@@ -41,6 +41,13 @@ namespace pijnacker_nootdorp_website
                     .EnableDetailedErrors()       // <-- with debugging (remove for production).
             );
 
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = "MyCookie";
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.IsEssential = true;
+            });
+
             services.AddControllersWithViews();
         }
 
@@ -60,6 +67,8 @@ namespace pijnacker_nootdorp_website
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
