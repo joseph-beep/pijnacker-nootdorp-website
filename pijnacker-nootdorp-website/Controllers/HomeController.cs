@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using pijnacker_nootdorp_website.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 
 namespace pijnacker_nootdorp_website.Controllers
 {
@@ -19,12 +20,38 @@ namespace pijnacker_nootdorp_website.Controllers
         {
             List<House> houses = GetHouses();
 
+            if (HttpContext.Session.TryGetValue("user", out byte[] userId))
+            {
+                ViewData["user"] = userId.ToString();
+            }
+            else
+            {
+                ViewData["user"] = "";
+            }
+
             return View(houses);
         }
 
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        /// <summary>
+        /// Wordt gecalled on submit van form in login.cshtml en ook on address
+        /// </summary>
+        [Route("login")]
+        public IActionResult Login(string username, string password)
+        {
+            if (password == "123")
+            {
+                HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(username));
+                return Redirect("/");
+            }
+            else
+            {
+                return View();
+            }
         }
 
         [Route("contact")]
