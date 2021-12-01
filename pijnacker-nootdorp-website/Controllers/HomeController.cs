@@ -62,6 +62,13 @@ namespace pijnacker_nootdorp_website.Controllers
         }
 
         [Route("contact")]
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        [Route("contact")]
+        [HttpPost]
         public IActionResult Contact(string firstName, string lastName)
         {
             ViewData["FirstName"] = firstName;
