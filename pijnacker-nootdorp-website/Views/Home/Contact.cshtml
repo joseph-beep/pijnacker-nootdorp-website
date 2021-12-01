@@ -4,66 +4,29 @@
     ViewData["Title"] = "Home Page";
 }
 
-<a href="/home/privacy">Privacy</a>
-<div>
-    <h1 class="display-4">CONTACT</h1>
-    <form action="/action_page.php">
-        <label for="search">Zoeken:</label> <input type="text" id="search" name="search" value="Huis"><br>
-
-        <label for="minimum_price">Minimum: €</label><input type="text" id="minimum_price" name="minimum_price" value="100000"><br>
-        <label for="maximum_price">Maximum: €</label><input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>
-
-        <label for="maximum_price">Toegankelijkheid:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br>
-        <label for="maximum_price">Bouwjaar:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>
-
-        <label for="maximum_price">Oppervlakte:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br>
-        <label for="maximum_price">Aantal kamers:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>
-
-        <input type="submit" value="Submit">
-    </form>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<h1 class="display-4">CONTACT</h1>
+<h1>Login</h1>
+<form>
+    first name: <input type="text" name="firstName" />
+    last name: <input type="text" name="lastName" />
+    <input type="submit" />
+</form>
+<p>FirstName:
+@if (ViewData["FirstName"] != null && !string.IsNullOrWhiteSpace(ViewData["FirstName"].ToString()))
+{
+    <p>@ViewData["FirstName"]</p>
+}
+else
+{
+    <p>No input</p>
+}
+;
+<p>LastName:
+@if (ViewData["LastName"] != null && !string.IsNullOrWhiteSpace(ViewData["LastName"].ToString()))
+{
+    <p>@ViewData["LastName"]</p>
+}
+else
+{
+    <p>No input</p>
+}

@@ -62,11 +62,12 @@ namespace pijnacker_nootdorp_website.Controllers
         }
 
         [Route("contact")]
-        public IActionResult Contact()
+        public IActionResult Contact(string firstName, string lastName)
         {
-            List<House> houses = GetHouses();
+            ViewData["FirstName"] = firstName;
+            ViewData["LastName"] = lastName;
 
-            return View(houses);
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
