@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using pijnacker_nootdorp_website.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace pijnacker_nootdorp_website.Controllers
@@ -45,15 +46,19 @@ namespace pijnacker_nootdorp_website.Controllers
         [Route("login")]
         public IActionResult Login(string username, string password)
         {
-            if (password == "123")
+            if (!string.IsNullOrWhiteSpace(password))
             {
-                HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(username));
-                return Redirect("/");
+                string correctHash = ComputeSha256Hash("password");
+                string inputHash = ComputeSha256Hash(password);
+
+                if (correctHash == inputHash)
+                {
+                    HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(username));
+                    return Redirect("/");
+                }
             }
-            else
-            {
-                return View();
-            }
+
+            return View();
         }
 
         [Route("contact")]
@@ -109,6 +114,24 @@ namespace pijnacker_nootdorp_website.Controllers
 
             // return de lijst met namen
             return products;
+        }
+
+        static string ComputeSha256Hash(string rawData)
+        {
+            // Create a SHA256   
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                // ComputeHash - returns byte array  
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                // Convert byte array to a string   
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }
