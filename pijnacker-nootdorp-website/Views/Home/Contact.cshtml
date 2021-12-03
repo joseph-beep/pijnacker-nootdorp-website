@@ -1,4 +1,4 @@
-﻿@model IEnumerable<House>
+﻿@model User
 
 @{
     ViewData["Title"] = "Home Page";
@@ -8,23 +8,15 @@
 <h1>Login</h1>
 <form method="post">
     first name: <input type="text" name="firstName" />
+    @Html.ValidationMessageFor(m => m.FirstName)
     last name: <input type="text" name="lastName" />
+    @Html.ValidationMessageFor(m => m.LastName)
     <input type="submit" />
 </form>
 <p>FirstName:
-@if (ViewData["FirstName"] != null && !string.IsNullOrWhiteSpace(ViewData["FirstName"].ToString()))
+@if (Model != null)
 {
-    <p>@ViewData["FirstName"]</p>
-}
-else
-{
-    <p>No input</p>
-}
-;
-<p>LastName:
-@if (ViewData["LastName"] != null && !string.IsNullOrWhiteSpace(ViewData["LastName"].ToString()))
-{
-    <p>@ViewData["LastName"]</p>
+    <p>Welcome @Model.FirstName @Model.LastName!</p>
 }
 else
 {

@@ -69,12 +69,11 @@ namespace pijnacker_nootdorp_website.Controllers
 
         [Route("contact")]
         [HttpPost]
-        public IActionResult Contact(string firstName, string lastName)
+        public IActionResult Contact(User user)
         {
-            ViewData["FirstName"] = firstName;
-            ViewData["LastName"] = lastName;
+            if (ModelState.IsValid) return Redirect("/");
 
-            return View();
+            return View(user);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
