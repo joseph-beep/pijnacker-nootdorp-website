@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 
 namespace pijnacker_nootdorp_website.Controllers
 {
@@ -20,7 +18,7 @@ namespace pijnacker_nootdorp_website.Controllers
         // GET: Houses
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Houses.ToListAsync());
+            return View(_context.Houses.ToList());
         }
 
         // GET: Houses/Details/5
@@ -49,7 +47,7 @@ namespace pijnacker_nootdorp_website.Controllers
                 return NotFound();
             }
 
-            var house = await _context.Houses.FirstOrDefaultAsync(m => m.Id == id);
+            var house = _context.Houses.FirstOrDefault(m => m.Id == id);
             if (house == null)
             {
                 return NotFound();
@@ -139,8 +137,7 @@ namespace pijnacker_nootdorp_website.Controllers
                 return NotFound();
             }
 
-            var house = await _context.Houses
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var house = _context.Houses.FirstOrDefault(m => m.Id == id);
             if (house == null)
             {
                 return NotFound();

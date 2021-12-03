@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using pijnacker_nootdorp_website.Models;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -12,9 +13,12 @@ namespace pijnacker_nootdorp_website.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly DatabaseContext _context;
+
+        public HomeController(ILogger<HomeController> logger, DatabaseContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -71,7 +75,14 @@ namespace pijnacker_nootdorp_website.Controllers
         [HttpPost]
         public IActionResult Contact(User user)
         {
-            if (ModelState.IsValid) return Redirect("/");
+            if (ModelState.IsValid)
+            {
+                _context.Add(user);
+                _context.SaveChanges();
+                HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(_context.Users.FirstOrDefault(u => u.Email == user.Email).Id.ToString()));
+                
+                return Redirect("/");
+            }
 
             return View(user);
         }

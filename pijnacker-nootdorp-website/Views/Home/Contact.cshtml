@@ -8,9 +8,11 @@
 <h1>Login</h1>
 <form method="post">
     first name: <input type="text" name="firstName" />
-    @Html.ValidationMessageFor(m => m.FirstName)
-    last name: <input type="text" name="lastName" />
-    @Html.ValidationMessageFor(m => m.LastName)
+    @Html.ValidationMessageFor(m => m.FirstName)<br/>
+    Last Name: <input type="text" name="lastName" />
+    @Html.ValidationMessageFor(m => m.LastName)<br />
+    Email Address: <input type="text" name="email" />
+    @Html.ValidationMessageFor(m => m.Email)<br />
     <input type="submit" />
 </form>
 <p>FirstName:
