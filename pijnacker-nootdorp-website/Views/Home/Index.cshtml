@@ -1,4 +1,4 @@
-﻿@model IEnumerable<House>
+﻿@model (IEnumerable<House> Houses, User User)
 
 @{
     ViewData["Title"] = "Home Page";
@@ -7,7 +7,10 @@
 <a href="/home/privacy">Privacy</a>
 <a href="/home/contact">Contact</a>
 <div>
-    <h1 class="display-4">Welkom, @ViewData["user"]</h1>
+    @if (Model.User != null)
+    {
+        <h1 class="display-4">Welkom, @Model.User.FirstName @Model.User.LastName, met wachtwoord: @Model.User.Password</h1>
+    }
     <h1 class="display-4">Huizen in Pijnacker-Nootdorp</h1>
     <form action="/action_page.php">
         <label for="search">Zoeken:</label> <input type="text" id="search" name="search" value="Huis"><br>
@@ -26,11 +29,11 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<table class="table">
+@*<table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model.Houses => model.Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Address)
@@ -68,4 +71,4 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@

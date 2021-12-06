@@ -1,0 +1,18 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Register</h1>
+<form method="post">
+    First Name: <input type="text" name="firstName" />
+    @Html.ValidationMessageFor(m => m.FirstName)<br />
+    Last Name: <input type="text" name="lastName" />
+    @Html.ValidationMessageFor(m => m.LastName)<br />
+    Email Address: <input type="text" name="email" />
+    @Html.ValidationMessageFor(m => m.Email)<br />
+    Password: <input type="text" name="password" />
+    @Html.ValidationMessageFor(m => m.Password)<br />
+    <input type="submit" />
+</form>

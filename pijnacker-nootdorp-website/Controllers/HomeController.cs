@@ -25,18 +25,15 @@ namespace pijnacker_nootdorp_website.Controllers
         {
             List<House> houses = GetHouses();
 
+            User user = null;
             if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
             {
                 string userId = Encoding.ASCII.GetString(userId_raw);
 
-                ViewData["user"] = userId;
-            }
-            else
-            {
-                ViewData["user"] = "Niemand";
+                user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
             }
 
-            return View(houses);
+            return View(((IEnumerable<House>)houses, user));
         }
 
         public IActionResult Privacy()
@@ -77,6 +74,8 @@ namespace pijnacker_nootdorp_website.Controllers
         {
             if (ModelState.IsValid)
             {
+                user.Password = ComputeSha256Hash(user.Password);
+
                 _context.Add(user);
                 _context.SaveChanges();
                 HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(_context.Users.FirstOrDefault(u => u.Email == user.Email).Id.ToString()));
@@ -86,6 +85,32 @@ namespace pijnacker_nootdorp_website.Controllers
 
             return View(user);
         }
+
+        #region Register
+
+        [Route("register")]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [Route("register")]
+        [HttpPost]
+        public IActionResult Register(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Users.Add(user);
+                _context.SaveChanges();
+                HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(_context.Users.FirstOrDefault(u => u.Email == user.Email).Id.ToString()));
+
+                return Redirect("/");
+            }
+
+            return View(user);
+        }
+
+        #endregion
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -148,6 +173,7 @@ namespace pijnacker_nootdorp_website.Controllers
                 {
                     builder.Append(bytes[i].ToString("x2"));
                 }
+
                 return builder.ToString();
             }
         }
