@@ -98,7 +98,7 @@ namespace pijnacker_nootdorp_website.Controllers
         [HttpPost]
         public IActionResult Register(User user)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && !_context.Users.Any(u => u.Email == user.Email))
             {
                 user.Password = ComputeSha256Hash(user.Password);
 
