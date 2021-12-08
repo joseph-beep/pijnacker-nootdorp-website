@@ -100,6 +100,8 @@ namespace pijnacker_nootdorp_website.Controllers
         {
             if (ModelState.IsValid)
             {
+                user.Password = ComputeSha256Hash(user.Password);
+
                 _context.Users.Add(user);
                 _context.SaveChanges();
                 HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(_context.Users.FirstOrDefault(u => u.Email == user.Email).Id.ToString()));
