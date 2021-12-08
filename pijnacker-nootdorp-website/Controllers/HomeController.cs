@@ -44,6 +44,11 @@ namespace pijnacker_nootdorp_website.Controllers
         [Route("login")]
         public IActionResult Login()
         {
+            if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
+            {
+                return Redirect("/");
+            }
+
             return View();
         }
 
@@ -51,6 +56,11 @@ namespace pijnacker_nootdorp_website.Controllers
         [HttpPost]
         public IActionResult Login(LoginData data)
         {
+            if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
+            {
+                return Redirect("/");
+            }
+
             User userData = _context.Users.FirstOrDefault(u => u.Email == data.Email);
 
             if (ModelState.IsValid && userData != null)
