@@ -33,7 +33,33 @@ namespace pijnacker_nootdorp_website.Controllers
                 user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
             }
 
-            return View(((IEnumerable<House>)houses, user));
+            return View(new HomeModel
+            {
+                User = user,
+                Houses = houses
+            });
+        }
+
+        [HttpPost]
+        public IActionResult Index(HomeModel data)
+        {
+            List<House> houses = GetHouses();
+
+            User user = null;
+            if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
+            {
+                string userId = Encoding.ASCII.GetString(userId_raw);
+
+                user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
+            }
+
+            return View(new HomeModel
+            {
+                User = user,
+                Houses = houses,
+                MinimumPrice = data.MinimumPrice,
+                MaximumPrice = data.MaximumPrice
+            });
         }
 
         public IActionResult Privacy()

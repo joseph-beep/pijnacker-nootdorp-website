@@ -1,4 +1,4 @@
-﻿@model (IEnumerable<House> Houses, User User)
+﻿@model HomeModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -12,20 +12,21 @@
         <h1 class="display-4">Welkom, @Model.User.FirstName @Model.User.LastName, met wachtwoord: @Model.User.Password</h1>
     }
     <h1 class="display-4">Huizen in Pijnacker-Nootdorp</h1>
-    <form action="/action_page.php">
-        <label for="search">Zoeken:</label> <input type="text" id="search" name="search" value="Huis"><br>
+    <form method="post">
+        <label>Zoeken:</label> <input type="text" name="search" value="Huis"><br>
 
-        <label for="minimum_price">Minimum: €</label><input type="text" id="minimum_price" name="minimum_price" value="100000"><br>
-        <label for="maximum_price">Maximum: €</label><input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>
+        <label>Minimum: €</label><input type="number" name="minimumPrice" value="100000"><br>
+        <label>Maximum: €</label><input type="number" name="maximumPrice" value="200000"><br><br>
 
-        <label for="maximum_price">Toegankelijkheid:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br>
-        <label for="maximum_price">Bouwjaar:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>
+        @*<label for="maximum_price">Toegankelijkheid:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br>
+            <label for="maximum_price">Bouwjaar:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>
 
-        <label for="maximum_price">Oppervlakte:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br>
-        <label for="maximum_price">Aantal kamers:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>
+            <label for="maximum_price">Oppervlakte:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br>
+            <label for="maximum_price">Aantal kamers:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>*@
 
-        <input type="submit" value="Submit">
+        <input type="submit">
     </form>
+    <h1>Search: MIN:@Model.MinimumPrice, MAX:@Model.MaximumPrice</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
