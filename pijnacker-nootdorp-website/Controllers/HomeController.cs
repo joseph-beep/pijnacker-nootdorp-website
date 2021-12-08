@@ -78,26 +78,13 @@ namespace pijnacker_nootdorp_website.Controllers
             return View(data);
         }
 
-        ///// <summary>
-        ///// Wordt gecalled on submit van form in login.cshtml en ook on address
-        ///// </summary>
-        //[Route("login")]
-        //public IActionResult Login(string username, string password)
-        //{
-        //    if (!string.IsNullOrWhiteSpace(password))
-        //    {
-        //        string correctHash = ComputeSha256Hash("password");
-        //        string inputHash = ComputeSha256Hash(password);
+        [Route("logout")]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("user");
 
-        //        if (correctHash == inputHash)
-        //        {
-        //            HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(username));
-        //            return Redirect("/");
-        //        }
-        //    }
-
-        //    return View();
-        //}
+            return Redirect("/");
+        }
 
         [Route("contact")]
         public IActionResult Contact()
