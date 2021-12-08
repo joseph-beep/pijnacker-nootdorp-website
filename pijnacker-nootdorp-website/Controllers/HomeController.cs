@@ -41,26 +41,53 @@ namespace pijnacker_nootdorp_website.Controllers
             return View();
         }
 
-        /// <summary>
-        /// Wordt gecalled on submit van form in login.cshtml en ook on address
-        /// </summary>
         [Route("login")]
-        public IActionResult Login(string username, string password)
+        public IActionResult Login()
         {
-            if (!string.IsNullOrWhiteSpace(password))
-            {
-                string correctHash = ComputeSha256Hash("password");
-                string inputHash = ComputeSha256Hash(password);
+            return View();
+        }
 
-                if (correctHash == inputHash)
+        [Route("login")]
+        [HttpPost]
+        public IActionResult Login(LoginData data)
+        {
+            User userData = _context.Users.FirstOrDefault(u => u.Email == data.Email);
+
+            if (ModelState.IsValid && userData != null)
+            {
+                string hashInput = ComputeSha256Hash(data.Password);
+
+                if (hashInput == userData.Password)
                 {
-                    HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(username));
+                    HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(userData.Id.ToString()));
+
                     return Redirect("/");
                 }
             }
 
-            return View();
+            return View(data);
         }
+
+        ///// <summary>
+        ///// Wordt gecalled on submit van form in login.cshtml en ook on address
+        ///// </summary>
+        //[Route("login")]
+        //public IActionResult Login(string username, string password)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(password))
+        //    {
+        //        string correctHash = ComputeSha256Hash("password");
+        //        string inputHash = ComputeSha256Hash(password);
+
+        //        if (correctHash == inputHash)
+        //        {
+        //            HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(username));
+        //            return Redirect("/");
+        //        }
+        //    }
+
+        //    return View();
+        //}
 
         [Route("contact")]
         public IActionResult Contact()
