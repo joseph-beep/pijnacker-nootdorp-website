@@ -43,7 +43,8 @@ namespace pijnacker_nootdorp_website.Controllers
         [HttpPost]
         public IActionResult Index(HomeModel data)
         {
-            List<House> houses = GetHouses();
+            data.IsInitialized = true;
+            List<House> houses = GetHouses(data);
 
             User user = null;
             if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
@@ -55,7 +56,6 @@ namespace pijnacker_nootdorp_website.Controllers
 
             data.User = user;
             data.Houses = houses;
-            data.IsInitialized = true;
 
             return View(data);
         }
@@ -124,7 +124,7 @@ namespace pijnacker_nootdorp_website.Controllers
             {
                 user.Password = ComputeSha256Hash(user.Password);
 
-                _context.Add(user);
+                _context.Users.Add(user);
                 _context.SaveChanges();
                 HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(_context.Users.FirstOrDefault(u => u.Email == user.Email).Id.ToString()));
                 
@@ -168,45 +168,11 @@ namespace pijnacker_nootdorp_website.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public List<House> GetHouses()
+        public List<House> GetHouses(HomeModel search = null)
         {
-            // stel in waar de database gevonden kan worden
-            string connectionString = "Server=172.16.160.21;Port=3306;Database=110737;Uid=110737;Pwd=infsql2021;";
-            //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110737;Uid=110737;Pwd=infsql2021;";
-            // maak een lege lijst waar we de namen in gaan opslaan
-            List<House> products = new List<House>();
+            if (search == null) return _context.Houses.ToList();
 
-            // verbinding maken met de database
-            //using (MySqlConnection conn = new MySqlConnection(connectionString))
-            //{
-            //    // verbinding openen
-            //    conn.Open();
-
-            //    // SQL query die we willen uitvoeren
-            //    MySqlCommand cmd = new MySqlCommand("select * from houses", conn);
-
-            //    // resultaat van de query lezen
-            //    using (var reader = cmd.ExecuteReader())
-            //    {
-            //        // elke keer een regel (of eigenlijk: database rij) lezen
-            //        while (reader.Read())
-            //        {
-            //            House house = new House
-            //            {
-            //                ID = Convert.ToInt32(reader["id"]),
-            //                Address = reader["address"].ToString(),
-            //                Price = Convert.ToInt32(reader["price"]),
-            //                Description = reader["description"].ToString()
-            //            };
-
-            //            // voeg de naam toe aan de lijst met namen
-            //            products.Add(house);
-            //        }
-            //    }
-            //}
-
-            // return de lijst met namen
-            return products;
+            return _context.Houses.Where(h => h.Price >= search.MinimumPrice && h.Price <= search.MaximumPrice).ToList();
         }
 
         static string ComputeSha256Hash(string rawData)

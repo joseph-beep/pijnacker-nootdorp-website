@@ -15,8 +15,8 @@
     <form method="post">
         <label>Zoeken:</label> <input type="text" name="search" value="Huis"><br>
 
-        <label>Minimum: €</label><input type="number" name="minimumPrice" value="100000"><br>
-        <label>Maximum: €</label><input type="number" name="maximumPrice" value="200000"><br><br>
+        <label>Minimum: €</label><input type="number" name="minimumPrice"><br>
+        <label>Maximum: €</label><input type="number" name="maximumPrice"><br><br>
 
         @*<label for="maximum_price">Toegankelijkheid:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br>
             <label for="maximum_price">Bouwjaar:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>
@@ -30,29 +30,28 @@
     {
         <h1>Search: MIN:@Model.MinimumPrice, MAX:@Model.MaximumPrice</h1>
     }
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    </div>
+</div>
 
-@*<table class="table">
+<table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model.Houses => model.Id)
+                @Html.DisplayNameFor(model => model.Houses[0].Id)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Address)
+                @Html.DisplayNameFor(model => model.Houses[0].Address)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.Houses[0].Price)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Description)
+                @Html.DisplayNameFor(model => model.Houses[0].Description)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Houses)
         {
             <tr>
                 <td>
@@ -75,4 +74,4 @@
             </tr>
         }
     </tbody>
-</table>*@
+</table>
