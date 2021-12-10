@@ -15,8 +15,8 @@
     <form method="post">
         <label>Zoeken:</label> <input type="text" name="search" value="Huis"><br>
 
-        <label>Minimum: €</label><input type="number" name="minimumPrice"><br>
-        <label>Maximum: €</label><input type="number" name="maximumPrice"><br><br>
+        <label>Minimum: €</label><input type="number" name="minimumPrice" value="@Model.MinimumPrice"><br>
+        <label>Maximum: €</label><input type="number" name="maximumPrice" value="@Model.MaximumPrice"><br><br>
 
         @*<label for="maximum_price">Toegankelijkheid:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br>
             <label for="maximum_price">Bouwjaar:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>
