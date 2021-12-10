@@ -5,6 +5,7 @@ public class HomeModel
     public User User { get; set; }
     public List<House> Houses { get; set; }
 
+    public bool IsInitialized { get; set; }
     public int MinimumPrice { get; set; }
     public int MaximumPrice { get; set; }
 }

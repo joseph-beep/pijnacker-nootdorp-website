@@ -26,9 +26,12 @@
 
         <input type="submit">
     </form>
-    <h1>Search: MIN:@Model.MinimumPrice, MAX:@Model.MaximumPrice</h1>
+    @if (Model.IsInitialized)
+    {
+        <h1>Search: MIN:@Model.MinimumPrice, MAX:@Model.MaximumPrice</h1>
+    }
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    </div>
 
 @*<table class="table">
     <thead>

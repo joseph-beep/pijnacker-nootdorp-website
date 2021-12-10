@@ -53,13 +53,11 @@ namespace pijnacker_nootdorp_website.Controllers
                 user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
             }
 
-            return View(new HomeModel
-            {
-                User = user,
-                Houses = houses,
-                MinimumPrice = data.MinimumPrice,
-                MaximumPrice = data.MaximumPrice
-            });
+            data.User = user;
+            data.Houses = houses;
+            data.IsInitialized = true;
+
+            return View(data);
         }
 
         public IActionResult Privacy()
