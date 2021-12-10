@@ -6,6 +6,8 @@ public class HomeModel
     public List<House> Houses { get; set; }
 
     public bool IsInitialized { get; set; }
-    public int MinimumPrice { get; set; }
-    public int MaximumPrice { get; set; }
+    public int Price_Minimum { get; set; }
+    public int Price_Maximum { get; set; }
+    public int OutdoorArea_Minimum { get; set; }
+    public int OutdoorArea_Maximum { get; set; }
 }

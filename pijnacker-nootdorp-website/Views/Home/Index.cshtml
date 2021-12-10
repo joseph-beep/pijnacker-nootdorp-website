@@ -4,33 +4,29 @@
     ViewData["Title"] = "Home Page";
 }
 
-<a href="/home/privacy">Privacy</a>
-<a href="/home/contact">Contact</a>
-<div>
-    @if (Model.User != null)
-    {
-        <h1 class="display-4">Welkom, @Model.User.FirstName @Model.User.LastName, met wachtwoord: @Model.User.Password</h1>
-    }
-    <h1 class="display-4">Huizen in Pijnacker-Nootdorp</h1>
-    <form method="post">
-        <label>Zoeken:</label> <input type="text" name="search" value="Huis"><br>
+@if (Model.User != null)
+{
+    <h1 class="display-4">Welkom, @Model.User.FirstName @Model.User.LastName, met wachtwoord: @Model.User.Password</h1>
+}
 
-        <label>Minimum: €</label><input type="number" name="minimumPrice" value="@Model.MinimumPrice"><br>
-        <label>Maximum: €</label><input type="number" name="maximumPrice" value="@Model.MaximumPrice"><br><br>
+<h1 class="display-4">Huizen in Pijnacker-Nootdorp</h1>
 
-        @*<label for="maximum_price">Toegankelijkheid:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br>
-            <label for="maximum_price">Bouwjaar:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>
+<form method="post">
+    <label>Zoeken:</label> <input type="text" name="search" value="Huis"><br>
 
-            <label for="maximum_price">Oppervlakte:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br>
-            <label for="maximum_price">Aantal kamers:</label> <input type="text" id="maximum_price" name="maximum_price" value="200000"><br><br>*@
+    <label>Minimum: €</label><input type="number" name="price_minimum" value="@Model.Price_Minimum"><br>
+    <label>Maximum: €</label><input type="number" name="price_maximum" value="@Model.Price_Maximum"><br>
 
-        <input type="submit">
-    </form>
-    @if (Model.IsInitialized)
-    {
-        <h1>Search: MIN:@Model.MinimumPrice, MAX:@Model.MaximumPrice</h1>
-    }
-</div>
+    <label>Outdoor Area:    Van: </label><input type="number" name="outdoorArea_minimum" value="@Model.OutdoorArea_Minimum">
+    <label> Tot: </label><input type="number" name="outdoorArea_maximum" value="@Model.OutdoorArea_Maximum"><br>
+
+    <input type="submit">
+</form>
+
+@if (Model.IsInitialized)
+{
+    <h1>Search: MIN:@Model.Price_Minimum, MAX:@Model.Price_Maximum</h1>
+}
 
 <table class="table">
     <thead>

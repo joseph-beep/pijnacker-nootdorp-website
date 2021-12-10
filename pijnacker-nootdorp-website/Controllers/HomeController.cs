@@ -172,7 +172,8 @@ namespace pijnacker_nootdorp_website.Controllers
         {
             if (search == null) return _context.Houses.ToList();
 
-            return _context.Houses.Where(h => h.Price >= search.MinimumPrice && h.Price <= search.MaximumPrice).ToList();
+            return _context.Houses.Where(h => h.Price >= search.Price_Minimum && h.Price <= search.Price_Maximum
+                && h.OutdoorArea >= search.OutdoorArea_Minimum && h.OutdoorArea <= search.OutdoorArea_Maximum).ToList();
         }
 
         static string ComputeSha256Hash(string rawData)
