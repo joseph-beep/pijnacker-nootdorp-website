@@ -4,11 +4,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-@if (Model.User != null)
-{
-    <h1 class="display-4">Welkom, @Model.User.FirstName @Model.User.LastName, met wachtwoord: @Model.User.Password</h1>
-}
-
 <h1 class="display-4">Huizen in Pijnacker-Nootdorp</h1>
 
 <form method="post">
