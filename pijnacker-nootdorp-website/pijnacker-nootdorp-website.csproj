@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <None Include="template.json" />
+    <None Include="wwwroot\assets\icon.png" />
   </ItemGroup>
 
   <ItemGroup>
