@@ -1,7 +1,7 @@
 ﻿@model User
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Register";
 }
 
 <h1>Register</h1>
@@ -12,7 +12,7 @@
     @Html.ValidationMessageFor(m => m.LastName)<br />
     Email Address: <input type="text" name="email" />
     @Html.ValidationMessageFor(m => m.Email)<br />
-    Password: <input type="text" name="password" />
+    Password: <input type="password" name="password" />
     @Html.ValidationMessageFor(m => m.Password)<br />
-    <input type="submit" />
+    <input type="submit" value="Registreer" />
 </form>

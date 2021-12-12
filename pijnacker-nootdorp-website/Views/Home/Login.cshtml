@@ -1,14 +1,14 @@
 ﻿@model LoginData
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Login";
 }
 
-<h1>Register</h1>
+<h1>Login</h1>
 <form method="post">
     Email Address: <input type="text" name="email" />
     @Html.ValidationMessageFor(m => m.Email)<br />
-    Password: <input type="text" name="password" />
+    Password: <input type="password" name="password" />
     @Html.ValidationMessageFor(m => m.Password)<br />
-    <input type="submit" />
+    <input type="submit" value="Login" />
 </form>
