@@ -146,10 +146,7 @@ namespace pijnacker_nootdorp_website.Controllers
                 user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
             }
 
-            //List<Order> orders = _context.Orders.Include(order => order.OrderItems).ToList();
-
             Order order = _context.Orders.FirstOrDefault(x => x.User.Id == user.Id);
-            //Order order = orders.FirstOrDefault(x => x.User.Id == user.Id);
             if (order == null)
             {
                 order = new Order
@@ -186,15 +183,31 @@ namespace pijnacker_nootdorp_website.Controllers
                 user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
             }
 
-            //foreach (var item in user.Order.OrderItems)
-            //{
-            //    _context.OrderItems.Remove(item);
-            //}
-
             _context.Orders.Remove(user.Order);
             _context.SaveChanges();
 
             return Redirect("/");
+        }
+
+        [Route("cart/add/{houseId}")]
+        public IActionResult AddCart(int houseId)
+        {
+            User user = null;
+            if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
+            {
+                string userId = Encoding.ASCII.GetString(userId_raw);
+
+                user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
+            }
+
+            user.Order.OrderItems.Add(new OrderItem
+            {
+                HouseId = houseId,
+                OrderId = user.Order.Id
+            });
+            _context.SaveChanges();
+
+            return Redirect($"/houses/{houseId}");
         }
 
         #region Register
