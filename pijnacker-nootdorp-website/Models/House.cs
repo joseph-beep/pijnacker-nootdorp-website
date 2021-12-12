@@ -1,4 +1,6 @@
-﻿public class House
+﻿using Newtonsoft.Json;
+
+public class House
 {
     public enum Accessibility { Wheelchair, Car, PublicTransport }
 
@@ -16,4 +18,25 @@
     public float IndoorArea { get; set; }
 
     public string Rooms { get; set; }
+
+    private HouseLayout _layout = null;
+    public HouseLayout Layout
+    {
+        get
+        {
+            if (_layout == null)
+            {
+                if (Rooms.Length <= 1)
+                {
+                    _layout = new HouseLayout();
+                }
+                else
+                {
+                    _layout = JsonConvert.DeserializeObject<HouseLayout>(Rooms);
+                }
+            }
+
+            return _layout;
+        }
+    }
 }
