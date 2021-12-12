@@ -5,16 +5,24 @@
 }
 
 <h1 class="display-4">Shopping Cart</h1>
-
-@if (Model.Order.OrderItems != null)
-{
-	<p>@Model.Order.User.FirstName</p>
-	@foreach (var item in Model.Order.OrderItems)
+@{
+	@if (Model.Order.OrderItems != null)
 	{
-		<p>- @item.House.Id</p>
+		<p>@Model.Order.User.FirstName</p>
+
+		int total = 0;
+
+		@foreach (var item in Model.Order.OrderItems)
+		{
+			<p>@item.House.Address - - - @item.House.Price</p>
+
+			total += item.House.Price;
+		}
+
+		<p>Total: @total</p>
 	}
-}
-else
-{
-	<p>ITEMS NOT FOUND</p>
+	else
+	{
+		<p>ITEMS NOT FOUND</p>
+	}
 }
