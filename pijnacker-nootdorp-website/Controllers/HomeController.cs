@@ -100,6 +100,8 @@ namespace pijnacker_nootdorp_website.Controllers
                 {
                     HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(userData.Id.ToString()));
 
+                    Website.User = userData;
+
                     return Redirect("/");
                 }
             }
@@ -118,6 +120,8 @@ namespace pijnacker_nootdorp_website.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("user");
+
+            Website.User = null;
 
             return Redirect("/");
         }
@@ -240,6 +244,8 @@ namespace pijnacker_nootdorp_website.Controllers
                 _context.Users.Add(user);
                 _context.SaveChanges();
                 HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(_context.Users.FirstOrDefault(u => u.Email == user.Email).Id.ToString()));
+
+                Website.User = user;
 
                 return Redirect("/");
             }
