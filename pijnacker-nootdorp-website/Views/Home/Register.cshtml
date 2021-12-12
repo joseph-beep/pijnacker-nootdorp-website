@@ -6,13 +6,13 @@
 
 <h1>Register</h1>
 <form method="post">
-    First Name: <input type="text" name="firstName" />
+    First Name: <input type="text" name="firstName" value="@Model.FirstName" />
     @Html.ValidationMessageFor(m => m.FirstName)<br />
-    Last Name: <input type="text" name="lastName" />
+    Last Name: <input type="text" name="lastName" value="@Model.LastName" />
     @Html.ValidationMessageFor(m => m.LastName)<br />
-    Email Address: <input type="text" name="email" />
+    Email Address: <input type="text" name="email" value="@Model.Email" />
     @Html.ValidationMessageFor(m => m.Email)<br />
-    Password: <input type="password" name="password" />
+    Password: <input type="password" name="password" value="@Model.Password" />
     @Html.ValidationMessageFor(m => m.Password)<br />
     <input type="submit" value="Registreer" />
 </form>

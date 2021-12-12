@@ -1,11 +1,16 @@
 ﻿@model LoginData
 
 @{
-    ViewData["Title"] = "Login";
+	ViewData["Title"] = "Login";
 }
 
 <h1>Login</h1>
 <form method="post">
+	@if (Model.EmailIsWrong)
+	{
+		<br />
+		<p>Wij herkennen deze e-mail niet. Misschien moet u eerst registreren?</p> <a href="/register">Registreer hier!</a><br /><br />
+	}
 	Email Address: <input type="text" name="email" value="@Model.Email" />
 	@Html.ValidationMessageFor(m => m.Email)<br />
 	Password: <input type="password" name="password" id="password" autocomplete="off" value="@Model.Password" />

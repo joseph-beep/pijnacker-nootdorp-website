@@ -104,6 +104,11 @@ namespace pijnacker_nootdorp_website.Controllers
                 }
             }
 
+            if (userData == null)
+            {
+                data.EmailIsWrong = true;
+            }
+
             data.Password = "";
 
             return View(data);
@@ -221,7 +226,7 @@ namespace pijnacker_nootdorp_website.Controllers
         [Route("register")]
         public IActionResult Register()
         {
-            return View();
+            return View(new User { });
         }
 
         [Route("register")]
