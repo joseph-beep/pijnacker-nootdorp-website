@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 public class User
 {
@@ -11,4 +12,6 @@ public class User
 
     public int Age { get; set; }
     [Required] public string Password { get; set; }
+
+    public virtual ICollection<Order> Orders { get; set; }
 }

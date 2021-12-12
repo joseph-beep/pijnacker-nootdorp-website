@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Diagnostics;
 
 public class DatabaseContext : DbContext
 {
@@ -15,7 +16,10 @@ public class DatabaseContext : DbContext
     {
         modelBuilder.Entity<House>().ToTable("houses");
         modelBuilder.Entity<Order>().ToTable("orders");
-        modelBuilder.Entity<OrderItem>().ToTable("order-items");
+        modelBuilder.Entity<OrderItem>().ToTable("order-items")
+            .HasOne(x => x.Order)
+            .WithMany(x => x.OrderItems)
+            .HasForeignKey(x => x.OrderId);
         modelBuilder.Entity<User>().ToTable("users");
     }
 }

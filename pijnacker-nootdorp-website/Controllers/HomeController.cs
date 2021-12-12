@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using pijnacker_nootdorp_website.Models;
 using System.Collections.Generic;
@@ -132,6 +133,39 @@ namespace pijnacker_nootdorp_website.Controllers
             }
 
             return View(user);
+        }
+
+        public IActionResult Cart()
+        {
+            User user = null;
+            if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
+            {
+                string userId = Encoding.ASCII.GetString(userId_raw);
+
+                user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
+            }
+
+            //List<Order> orders = _context.Orders.Include(order => order.OrderItems).ToList();
+
+            Order order = _context.Orders.FirstOrDefault(x => x.User.Id == user.Id);
+            //Order order = orders.FirstOrDefault(x => x.User.Id == user.Id);
+            if (order == null)
+            {
+                order = new Order
+                {
+                    UserId = user.Id,
+                    User = user
+                };
+
+                _context.Orders.Add(order);
+                _context.SaveChanges();
+            }
+
+            return View(new CartModel
+            {
+                User = user,
+                Order = order
+            });
         }
 
         #region Register

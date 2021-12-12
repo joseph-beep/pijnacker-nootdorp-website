@@ -1,10 +1,10 @@
 ﻿public class OrderItem
 {
-    public int Id { get; set; }
+    public int OrderItemId { get; set; }
 
-    public int House_Id { get; set; }
-    public int Order_Id { get; set; }
+    public int HouseId { get; set; }
+    public int OrderId { get; set; }
 
-    public House House { get; set; }
-    public Order Order { get; set; }
+    public virtual House House { get; set; }
+    public virtual Order Order { get; set; }
 }

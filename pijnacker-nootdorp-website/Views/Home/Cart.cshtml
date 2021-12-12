@@ -1,0 +1,20 @@
+﻿@model CartModel
+
+@{
+	ViewData["Title"] = "Home Page";
+}
+
+<h1 class="display-4">Shopping Cart</h1>
+
+@if (Model.Order.OrderItems != null)
+{
+	<p>@Model.Order.User.FirstName</p>
+	@foreach (var item in Model.Order.OrderItems)
+	{
+		<p>- @item.House.Id</p>
+	}
+}
+else
+{
+	<p>ITEMS NOT FOUND</p>
+}
