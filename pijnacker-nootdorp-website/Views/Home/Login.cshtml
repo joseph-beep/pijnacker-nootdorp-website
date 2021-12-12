@@ -6,9 +6,22 @@
 
 <h1>Login</h1>
 <form method="post">
-    Email Address: <input type="text" name="email" />
-    @Html.ValidationMessageFor(m => m.Email)<br />
-    Password: <input type="password" name="password" />
-    @Html.ValidationMessageFor(m => m.Password)<br />
-    <input type="submit" value="Login" />
+	Email Address: <input type="text" name="email" />
+	@Html.ValidationMessageFor(m => m.Email)<br />
+	Password: <input type="password" name="password" id="password" autocomplete="off" />
+	@Html.ValidationMessageFor(m => m.Password)    <input type="checkbox" onclick="togglePassword()">Show Password<br />
+	<input type="submit" value="Login" />
 </form>
+
+@section Scripts {
+	<script>
+		function togglePassword() {
+			var x = document.getElementById("password");
+			if (x.type === "password") {
+				x.type = "text";
+			} else {
+				x.type = "password";
+			}
+		}
+	</script>
+}
