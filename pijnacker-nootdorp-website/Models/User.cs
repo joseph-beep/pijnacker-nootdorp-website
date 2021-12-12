@@ -13,5 +13,5 @@ public class User
     public int Age { get; set; }
     [Required] public string Password { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; }
+    public virtual Order Order { get; set; }
 }

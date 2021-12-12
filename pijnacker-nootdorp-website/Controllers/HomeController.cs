@@ -135,6 +135,7 @@ namespace pijnacker_nootdorp_website.Controllers
             return View(user);
         }
 
+        [Route("cart")]
         public IActionResult Cart()
         {
             User user = null;
@@ -166,6 +167,34 @@ namespace pijnacker_nootdorp_website.Controllers
                 User = user,
                 Order = order
             });
+        }
+        
+        [Route("cart/pay")]
+        public IActionResult Pay()
+        {
+            return View();
+        }
+
+        [Route("cart/pay/done")]
+        public IActionResult FinishPay()
+        {
+            User user = null;
+            if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
+            {
+                string userId = Encoding.ASCII.GetString(userId_raw);
+
+                user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
+            }
+
+            //foreach (var item in user.Order.OrderItems)
+            //{
+            //    _context.OrderItems.Remove(item);
+            //}
+
+            _context.Orders.Remove(user.Order);
+            _context.SaveChanges();
+
+            return Redirect("/");
         }
 
         #region Register
