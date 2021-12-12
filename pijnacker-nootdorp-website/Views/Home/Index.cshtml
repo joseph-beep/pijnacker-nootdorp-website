@@ -21,23 +21,16 @@
 	<h1>Search: MIN:@Model.Price_Minimum, MAX:@Model.Price_Maximum</h1>
 }
 
-@foreach (var item in Model.Houses)
+@foreach (var house in Model.Houses)
 {
-	<div>
-		<td>
-			@Html.DisplayFor(modelItem => item.Id)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Address)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Price)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Description)
-		</td>
-		<td>
-			<a href="/houses/@item.Id">Details</a>
-		</td>
+	<div class="house-list-element">
+		<a href="/houses/@house.Id">
+			<img src="@house.Picture" />
+			<h2>@house.Address</h2>
+			<p>€@TextUtilities.BeautifyNumber(house.Price) · @house.IndoorArea · @house.OutdoorArea · @house.Layout.storeys.Length.ToString() etages · @house.BuildYear</p>
+
+			<p>@house.Description</p>
+		</a>
 	</div>
+	<hr />
 }

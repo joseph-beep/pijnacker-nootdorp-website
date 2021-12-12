@@ -30,3 +30,13 @@ li img {
 	background-color: #0062CD;
 	color: white;
 }
+
+.house-list-element a {
+	text-decoration: none;
+	color: black;
+}
+.house-list-element img {
+	width: 100px;
+	height: 100px;
+	float: left;
+}

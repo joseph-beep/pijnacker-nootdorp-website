@@ -27,13 +27,13 @@ public class House
         {
             if (_layout == null)
             {
-                if (Rooms.Length <= 1)
-                {
-                    _layout = new HouseLayout();
-                }
-                else
+                try
                 {
                     _layout = JsonConvert.DeserializeObject<HouseLayout>(Rooms);
+                }
+                catch
+                {
+                    _layout = new HouseLayout();
                 }
             }
 
