@@ -18,6 +18,7 @@ public class House
     public float IndoorArea { get; set; }
 
     public string Rooms { get; set; }
+    public string Picture { get; set; }
 
     private HouseLayout _layout = null;
     public HouseLayout Layout
