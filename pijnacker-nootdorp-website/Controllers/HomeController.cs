@@ -74,7 +74,11 @@ namespace pijnacker_nootdorp_website.Controllers
                 return Redirect("/");
             }
 
-            return View();
+            return View(new LoginData
+            {
+                Email = "",
+                Password = ""
+            });
         }
 
         [Route("login")]
@@ -99,6 +103,8 @@ namespace pijnacker_nootdorp_website.Controllers
                     return Redirect("/");
                 }
             }
+
+            data.Password = "";
 
             return View(data);
         }
