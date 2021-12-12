@@ -1,4 +1,8 @@
-﻿ul {
+﻿body {
+	font-family: "Ubuntu";
+}
+
+ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
