@@ -1,64 +1,43 @@
 ﻿@model HomeModel
 
 @{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Home Page";
 }
 
-<form method="post">
-    <label>Zoeken:</label> <input type="text" name="search" value="Huis"><br>
+<form method="post" class="search-container">
+	<label>Zoeken:</label> <input type="text" name="search" value="Huis"><br>
 
-    <label>Minimum: €</label><input type="number" name="price_minimum" value="@Model.Price_Minimum"><br>
-    <label>Maximum: €</label><input type="number" name="price_maximum" value="@Model.Price_Maximum"><br>
+	<label>Minimum: €</label><input type="number" name="price_minimum" value="@Model.Price_Minimum"><br>
+	<label>Maximum: €</label><input type="number" name="price_maximum" value="@Model.Price_Maximum"><br>
 
-    <label>Outdoor Area:    Van: </label><input type="number" name="outdoorArea_minimum" value="@Model.OutdoorArea_Minimum">
-    <label> Tot: </label><input type="number" name="outdoorArea_maximum" value="@Model.OutdoorArea_Maximum"><br>
+	<label>Outdoor Area:    Van: </label><input type="number" name="outdoorArea_minimum" value="@Model.OutdoorArea_Minimum">
+	<label> Tot: </label><input type="number" name="outdoorArea_maximum" value="@Model.OutdoorArea_Maximum"><br>
 
-    <input type="submit">
+	<input type="submit">
 </form>
 
 @if (Model.IsInitialized)
 {
-    <h1>Search: MIN:@Model.Price_Minimum, MAX:@Model.Price_Maximum</h1>
+	<h1>Search: MIN:@Model.Price_Minimum, MAX:@Model.Price_Maximum</h1>
 }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Houses[0].Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Houses[0].Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Houses[0].Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Houses[0].Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Houses)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    <a href="/houses/@item.Id">Details</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+@foreach (var item in Model.Houses)
+{
+	<div>
+		<td>
+			@Html.DisplayFor(modelItem => item.Id)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Address)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Price)
+		</td>
+		<td>
+			@Html.DisplayFor(modelItem => item.Description)
+		</td>
+		<td>
+			<a href="/houses/@item.Id">Details</a>
+		</td>
+	</div>
+}
