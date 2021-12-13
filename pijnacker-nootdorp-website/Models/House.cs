@@ -1,8 +1,16 @@
 ﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 public class House
 {
     public enum Accessibility { Wheelchair, Car, PublicTransport }
+
+    public class AccessModel
+    {
+        public bool wheelchair;
+        public bool car;
+        public bool publicTransport;
+    }
 
     public int Id { get; set; }
 
@@ -38,6 +46,27 @@ public class House
             }
 
             return _layout;
+        }
+    }
+
+    private AccessModel _accessData = null;
+    public AccessModel AccessData
+    {
+        get
+        {
+            if (_accessData == null)
+            {
+                _accessData = new AccessModel();
+
+                List<int> digits = NumberUtilities.GetDigits(Access);
+                digits.Reverse();
+
+                _accessData.wheelchair = digits[0] == 1;
+                if (digits.Count > 1) _accessData.car = digits[1] == 1;
+                if (digits.Count > 2) _accessData.publicTransport = digits[2] == 1;
+            }
+
+            return _accessData;
         }
     }
 }
