@@ -284,7 +284,7 @@ namespace pijnacker_nootdorp_website.Controllers
                 if (outdoorArea_minimum == null || house.OutdoorArea < outdoorArea_minimum) continue;
                 else if (house.OutdoorArea > outdoorArea_maximum) continue;
 
-                int matchCount = CountMatches(GetKeywords(house.Address), searchQueryKeywords);
+                int matchCount = searchQueryKeywords == null ? 999 : CountMatches(GetKeywords(house.Address), searchQueryKeywords);
 
                 if (matchCount > 0)
                 {
@@ -298,7 +298,7 @@ namespace pijnacker_nootdorp_website.Controllers
 
         private string[] GetKeywords(string text)
         {
-            if (string.IsNullOrEmpty(text)) return new string[0];
+            if (string.IsNullOrEmpty(text)) return null;
 
             string[] separators = new string[] { ",", ".", "!", "\'", " ", "\'s", "-", "_", "?" };
 
