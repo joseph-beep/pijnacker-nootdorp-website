@@ -13,4 +13,8 @@ public class HomeModel
     public string OutdoorArea_Maximum { get; set; }
     public string IndoorArea_Minimum { get; set; }
     public string IndoorArea_Maximum { get; set; }
+
+    public string Wheelchair { get; set; }
+    public string Car { get; set; }
+    public string PublicTransport { get; set; }
 }
