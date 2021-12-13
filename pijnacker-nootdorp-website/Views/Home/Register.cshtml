@@ -4,15 +4,41 @@
     ViewData["Title"] = "Register";
 }
 
-<h1>Register</h1>
-<form method="post">
-    First Name: <input type="text" name="firstName" value="@Model.FirstName" />
-    @Html.ValidationMessageFor(m => m.FirstName)<br />
-    Last Name: <input type="text" name="lastName" value="@Model.LastName" />
-    @Html.ValidationMessageFor(m => m.LastName)<br />
-    Email Address: <input type="text" name="email" value="@Model.Email" />
-    @Html.ValidationMessageFor(m => m.Email)<br />
-    Password: <input type="password" name="password" value="@Model.Password" />
-    @Html.ValidationMessageFor(m => m.Password)<br />
-    <input type="submit" value="Registreer" />
-</form>
+<div class="div-full-centered">
+	<form method="post">
+		<table>
+			<tr>
+				<td></td>
+				<td><h1>Registreer</h1></td>
+			</tr>
+			<tr>
+				<td class="label-input">First Name: </td>
+				<td><input type="text" name="firstName" value="@Model.FirstName" class="main-input" /></td>
+				<td>@Html.ValidationMessageFor(m => m.FirstName)</td>
+			</tr>
+			<tr>
+				<td class="label-input">Last Name: </td>
+				<td><input type="text" name="lastName" value="@Model.LastName" class="main-input" /></td>
+				<td>@Html.ValidationMessageFor(m => m.LastName)</td>
+			</tr>
+			<tr>
+				<td class="label-input">Email Address: </td>
+				<td><input type="text" name="email" value="@Model.Email" class="main-input" /></td>
+				<td>@Html.ValidationMessageFor(m => m.Email)</td>
+			</tr>
+			<tr>
+				<td class="label-input">Password: </td>
+				<td><input type="password" name="password" id="password" autocomplete="off" value="@Model.Password" class="main-input" /></td>
+				<td><input type="checkbox" onclick="togglePassword()"> Toon wachtwoord</td>
+				<td>@Html.ValidationMessageFor(m => m.Password)</td>
+			</tr>
+			<tr>
+				<td><br /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input class="full-input button-input" type="submit" value="Registreer" /></td>
+			</tr>
+		</table>
+	</form>
+</div>
