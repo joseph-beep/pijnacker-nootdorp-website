@@ -63,19 +63,19 @@ li img {
 	font-size: 1vw;
 	font-weight: 100;
 }
-	.house-list-element .icon {
-		height: 1vw;
-		width: 1vw;
-		float: none;
-		margin: 0;
-		-webkit-box-shadow: none;
-		box-shadow: none;
-		image-rendering: -moz-crisp-edges; /* Firefox */
-		image-rendering: -o-crisp-edges; /* Opera */
-		image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
-		image-rendering: optimize-contrast;
-		-ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
-	}
+.house-list-element .icon {
+	height: 1vw;
+	width: 1vw;
+	float: none;
+	margin: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	image-rendering: -moz-crisp-edges; /* Firefox */
+	image-rendering: -o-crisp-edges; /* Opera */
+	image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+	image-rendering: optimize-contrast;
+	-ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
 
 table {
 	margin-left: auto;
@@ -129,4 +129,9 @@ input:hover {
 	position: fixed;
 	top: 25%;
 	width: 100%;
+}
+
+footer {
+	padding-top: 2vw;
+	padding-bottom: 0.5vw;
 }
