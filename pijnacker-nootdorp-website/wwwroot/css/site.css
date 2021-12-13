@@ -40,6 +40,8 @@
 .search-container {
 	background-color: #0062CD;
 	color: white;
+	padding-top: 9vw;
+	padding-bottom: 2vw;
 }
 
 .house-list-element {
@@ -104,7 +106,7 @@ table h1 {
 }
 
 input {
-	border-radius: 5px;
+	border-radius: 0.5vw;
 	padding: 10px;
 	border: 1px solid #ccc;
 }
@@ -113,16 +115,33 @@ input:hover {
 }
 
 .search-input {
-	text-align: center;
+	width: 93%;
+	padding: 1vw;
+	border: none;
+	height: 3vw;
+	padding-top: 0vw;
+	padding-bottom: 0vw;
+	font-size: 1.125vw;
+	transition: outline-width 0.5s;
+	transition: outline-color 0.5s;
+	outline: white solid 0px;
+}
+.search-input:hover {
+	border: none;
+	outline: #bbb solid 1px;
+}
+.search-input:focus {
+	border: none;
+	outline: black solid 1px;
 }
 
 .button-input {
-	background-color: #0062CD;
-	color: white;
+	background-color: white;
+	color: black;
 	border: none;
 }
 .button-input:hover {
-	background-color: #0053B2;
+	background-color: lightgrey;
 	border: none;
 }
 
@@ -132,6 +151,8 @@ input:hover {
 
 .label-input {
 	padding-right: 30px;
+	font-size: 1.125vw;
+	text-align: right;
 }
 
 .div-full-centered {
@@ -143,4 +164,12 @@ input:hover {
 footer {
 	padding-top: 2vw;
 	padding-bottom: 0.5vw;
+}
+
+select {
+	padding: 0.5vw;
+	border-radius: 0.5vw;
+	border: none;
+	font-size: 1vw;
+	width: 15vw;
 }
