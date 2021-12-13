@@ -233,11 +233,6 @@
 	</table>
 </form>
 
-@if (Model.IsInitialized)
-{
-	<h1>Search: MIN:@Model.Price_Minimum, MAX:@Model.Price_Maximum @Model.Car</h1>
-}
-
 @foreach (var house in Model.Houses)
 {
 	<div class="house-list-element">
@@ -254,11 +249,16 @@
 
 @section Scripts {
 	<script>
-		function onLoad() {
-			if (@Model.IsInitialized)
-			{
+		window.onload = function() {
+			if ("@Model.IsInitialized" == "True") {
 				document.getElementsByName("price_minimum")[0].value = "@Model.Price_Minimum";
 				document.getElementsByName("price_maximum")[0].value = "@Model.Price_Maximum";
+				document.getElementsByName("outdoorArea_minimum")[0].value = "@Model.OutdoorArea_Minimum";
+				document.getElementsByName("outdoorArea_maximum")[0].value = "@Model.OutdoorArea_Maximum";
+				document.getElementsByName("indoorArea_minimum")[0].value = "@Model.IndoorArea_Minimum";
+				document.getElementsByName("indoorArea_maximum")[0].value = "@Model.IndoorArea_Maximum";
+				document.getElementsByName("buildYear_minimum")[0].value = "@Model.BuildYear_Minimum";
+				document.getElementsByName("buildYear_maximum")[0].value = "@Model.BuildYear_Maximum";
 			}
 		}
 
