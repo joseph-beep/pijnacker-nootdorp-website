@@ -8,7 +8,23 @@
 	<link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-	<ul>
+
+	<div class="navigation">
+		<img src="~/assets/icon.png" />
+		<a asp-area="" asp-controller="Home" asp-action="Index" class="title">Huizen in Pijnacker-Nootdorp</a>
+		@if (Website.User != null)
+		{
+			<a asp-area="" asp-controller="Home" asp-action="Cart" class="right">Winkelmandje</a>
+			<a asp-area="" asp-controller="Home" asp-action="Logout">Log uit</a>
+			<a asp-area="" asp-controller="Home" asp-action="Cart">Hallo, @Website.User.FirstName</a>
+		}
+		else
+		{
+			<a asp-area="" asp-controller="Home" asp-action="Login" class="right">Login</a>
+		}
+	</div>
+
+	@*<ul>
 		<li><img src="~/assets/icon.png" /></li>
 		<li><a asp-area="" asp-controller="Home" asp-action="Index">Huizen in Pijnacker-Nootdorp</a></li>
 		@if (Website.User != null)
@@ -21,7 +37,7 @@
 		{
 			<li class="right"><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
 		}
-	</ul>
+	</ul>*@
 
 	<div class="container">
 		<main role="main" class="pb-3">
