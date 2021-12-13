@@ -238,13 +238,12 @@
 	<div class="house-list-element">
 		<a href="/houses/@house.Id">
 			<img src="@house.Picture" />
-			<h2>@house.Address</h2>
-			<p>€@TextUtilities.BeautifyNumber(house.Price) · @house.IndoorArea · @house.OutdoorArea · @house.Layout.storeys.Length.ToString() etages · @house.BuildYear</p>
+			<h1>@house.Address</h1>
+			<h2>€@TextUtilities.BeautifyNumber(house.Price) · @house.IndoorArea m² <img src="~/assets/floor.png" class="icon" /> · @house.OutdoorArea m² <img src="~/assets/tree.png" class="icon" /> · @house.Layout.storeys.Length.ToString() etages · @house.BuildYear</h2>
 
 			<p>@house.Description</p>
 		</a>
 	</div>
-	<hr />
 }
 
 @section Scripts {

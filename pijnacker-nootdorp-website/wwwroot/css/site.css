@@ -1,5 +1,7 @@
 ﻿body {
 	font-family: "Ubuntu";
+	margin-left: 10vw;
+	margin-right: 10vw;
 }
 
 ul {
@@ -31,15 +33,49 @@ li img {
 	color: white;
 }
 
+.house-list-element {
+	height: 12vw;
+}
 .house-list-element a {
 	text-decoration: none;
 	color: black;
 }
 .house-list-element img {
-	width: 100px;
-	height: 100px;
+	width: 21.3vw;
+	height: 12vw;
 	float: left;
+	margin-right: 1.5vw;
+	-webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15); 
+	box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
 }
+.house-list-element h1 {
+	font-size: 2.5vw;
+	font-weight: 100;
+	margin-bottom: 0;
+}
+.house-list-element h2 {
+	font-size: 1.5vw;
+	font-weight: 100;
+	margin-top: 0;
+	margin-bottom: 0.5vw;
+}
+.house-list-element p {
+	font-size: 1vw;
+	font-weight: 100;
+}
+	.house-list-element .icon {
+		height: 1vw;
+		width: 1vw;
+		float: none;
+		margin: 0;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		image-rendering: -moz-crisp-edges; /* Firefox */
+		image-rendering: -o-crisp-edges; /* Opera */
+		image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+		image-rendering: optimize-contrast;
+		-ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+	}
 
 table {
 	margin-left: auto;
