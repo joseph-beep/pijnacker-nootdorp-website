@@ -11,7 +11,6 @@
 	<table>
 		<tr>
 			<td class="label-input">Prijs: </td>
-			@*<td>Van €<input type="number" name="price_minimum" value="@Model.Price_Minimum" class="main-input" /></td>*@
 			<td>
 				<select name="price_minimum">
 					<option value="other">Anders</option>
@@ -92,7 +91,6 @@
 					<option selected value="ignore_filter">Geen maximum</option>
 				</select>
 			</td>
-			@*<td>Tot <input type="number" name="price_maximum" value="@Model.Price_Maximum" class="main-input" /></td>*@
 		</tr>
 		<tr>
 			<td><b>Oppervlakte</b></td>
@@ -177,6 +175,11 @@
 				</select>
 			</td>
 		</tr>
+		<tr>
+			<td></td>
+			<td><input class="full-input button-input" type="submit" value="Zoek" /></td>
+			<td><button type="button" onclick="toggleMoreOptions()">Meer opties</button></td>
+		</tr>
 		<tr class="more-options">
 			<td class="label-input">Bouwjaar: </td>
 			<td>
@@ -217,11 +220,6 @@
 				</select>
 			</td>
 		</tr>
-		<tr>
-			<td></td>
-			<td><input class="full-input button-input" type="submit" value="Zoek" /></td>
-			<td><button type="button" onclick="toggleMoreOptions()">Meer opties</button></td>
-		</tr>
 	</table>
 </form>
 
@@ -246,6 +244,14 @@
 
 @section Scripts {
 	<script>
+		function onLoad() {
+			if (@Model.IsInitialized)
+			{
+				document.getElementsByName("price_minimum")[0].value = "@Model.Price_Minimum";
+				document.getElementsByName("price_maximum")[0].value = "@Model.Price_Maximum";
+			}
+		}
+
 		function toggleMoreOptions() {
 			var options = document.getElementsByClassName("more-options");
 			for (var i = 0; i < options.length; i++) {
