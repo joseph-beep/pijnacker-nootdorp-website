@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using pijnacker_nootdorp_website.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -265,8 +266,67 @@ namespace pijnacker_nootdorp_website.Controllers
         {
             if (search == null) return _context.Houses.ToList();
 
-            return _context.Houses.Where(h => h.Price >= search.Price_Minimum && h.Price <= search.Price_Maximum
-                && h.OutdoorArea >= search.OutdoorArea_Minimum && h.OutdoorArea <= search.OutdoorArea_Maximum).ToList();
+            int? price_minimum = int.TryParse(search.Price_Minimum, out int data1) ? data1 : null;
+            int? price_maximum = int.TryParse(search.Price_Maximum, out int data2) ? data2 : null;
+
+            int? outdoorArea_minimum = int.TryParse(search.OutdoorArea_Minimum, out int data3) ? data3 : null;
+            int? outdoorArea_maximum = int.TryParse(search.OutdoorArea_Maximum, out int data4) ? data4 : null;
+
+            string[] searchQueryKeywords = GetKeywords(search.SearchQuery);
+
+            List<House> houses = new List<House>();
+            Dictionary<House, int> matches = new Dictionary<House, int>();
+            foreach (var house in _context.Houses)
+            {
+                if (price_minimum == null || house.Price < price_minimum) continue;
+                else if (house.Price > price_maximum) continue;
+
+                if (outdoorArea_minimum == null || house.OutdoorArea < outdoorArea_minimum) continue;
+                else if (house.OutdoorArea > outdoorArea_maximum) continue;
+
+                int matchCount = CountMatches(GetKeywords(house.Address), searchQueryKeywords);
+
+                if (matchCount > 0)
+                {
+                    houses.Add(house);
+                    matches.Add(house, matchCount);
+                }
+            }
+
+            return houses.OrderByDescending(x => matches[x]).ToList();
+        }
+
+        private string[] GetKeywords(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return new string[0];
+
+            string[] separators = new string[] { ",", ".", "!", "\'", " ", "\'s", "-", "_", "?" };
+
+            string[] keywords = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+            for (int i = 0; i < keywords.Length; i++)
+            {
+                keywords[i] = keywords[i].ToLower();
+            }
+
+            return keywords;
+        }
+
+        private int CountMatches(string[] keywords1, string[] keywords2)
+        {
+            int matches = 0;
+
+            for (int i = 0; i < keywords1.Length; i++)
+            {
+                for (int j = 0; j < keywords2.Length; j++)
+                {
+                    if (keywords1[i].Contains(keywords2[j]) || keywords2[j].Contains(keywords1[i]))
+                    {
+                        matches++;
+                    }
+                }
+            }
+
+            return matches;
         }
 
         static string ComputeSha256Hash(string rawData)

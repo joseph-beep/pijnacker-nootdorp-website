@@ -5,15 +5,224 @@
 }
 
 <form method="post" class="search-container">
-	<label>Zoeken:</label> <input type="text" name="search" value="Huis"><br>
-
-	<label>Minimum: €</label><input type="number" name="price_minimum" value="@Model.Price_Minimum"><br>
-	<label>Maximum: €</label><input type="number" name="price_maximum" value="@Model.Price_Maximum"><br>
-
-	<label>Outdoor Area:    Van: </label><input type="number" name="outdoorArea_minimum" value="@Model.OutdoorArea_Minimum">
-	<label> Tot: </label><input type="number" name="outdoorArea_maximum" value="@Model.OutdoorArea_Maximum"><br>
-
-	<input type="submit">
+	<div class="search-input">
+		<label>Zoeken: </label><input type="text" name="searchQuery" value="@Model.SearchQuery"><br>
+	</div>
+	<table>
+		<tr>
+			<td class="label-input">Prijs: </td>
+			@*<td>Van €<input type="number" name="price_minimum" value="@Model.Price_Minimum" class="main-input" /></td>*@
+			<td>
+				<select name="price_minimum">
+					<option value="other">Anders</option>
+					<option selected value="0">€ 0</option>
+					<option value="50000">€ 50.000</option>
+					<option value="75000">€ 75.000</option>
+					<option value="100000">€ 100.000</option>
+					<option value="125000">€ 125.000</option>
+					<option value="150000">€ 150.000</option>
+					<option value="175000">€ 175.000</option>
+					<option value="200000">€ 200.000</option>
+					<option value="225000">€ 225.000</option>
+					<option value="250000">€ 250.000</option>
+					<option value="275000">€ 275.000</option>
+					<option value="300000">€ 300.000</option>
+					<option value="325000">€ 325.000</option>
+					<option value="350000">€ 350.000</option>
+					<option value="375000">€ 375.000</option>
+					<option value="400000">€ 400.000</option>
+					<option value="450000">€ 450.000</option>
+					<option value="500000">€ 500.000</option>
+					<option value="550000">€ 550.000</option>
+					<option value="600000">€ 600.000</option>
+					<option value="650000">€ 650.000</option>
+					<option value="700000">€ 700.000</option>
+					<option value="750000">€ 750.000</option>
+					<option value="800000">€ 800.000</option>
+					<option value="900000">€ 900.000</option>
+					<option value="1000000">€ 1.000.000</option>
+					<option value="1250000">€ 1.250.000</option>
+					<option value="1500000">€ 1.500.000</option>
+					<option value="2000000">€ 2.000.000</option>
+					<option value="2500000">€ 2.500.000</option>
+					<option value="3000000">€ 3.000.000</option>
+					<option value="3500000">€ 3.500.000</option>
+					<option value="4000000">€ 4.000.000</option>
+					<option value="4500000">€ 4.500.000</option>
+					<option value="5000000">€ 5.000.000</option>
+				</select>
+			</td>
+			<td>
+				<select name="price_maximum">
+					<option value="other">Anders</option>
+					<option value="50000">€ 50.000</option>
+					<option value="75000">€ 75.000</option>
+					<option value="100000">€ 100.000</option>
+					<option value="125000">€ 125.000</option>
+					<option value="150000">€ 150.000</option>
+					<option value="175000">€ 175.000</option>
+					<option value="200000">€ 200.000</option>
+					<option value="225000">€ 225.000</option>
+					<option value="250000">€ 250.000</option>
+					<option value="275000">€ 275.000</option>
+					<option value="300000">€ 300.000</option>
+					<option value="325000">€ 325.000</option>
+					<option value="350000">€ 350.000</option>
+					<option value="375000">€ 375.000</option>
+					<option value="400000">€ 400.000</option>
+					<option value="450000">€ 450.000</option>
+					<option value="500000">€ 500.000</option>
+					<option value="550000">€ 550.000</option>
+					<option value="600000">€ 600.000</option>
+					<option value="650000">€ 650.000</option>
+					<option value="700000">€ 700.000</option>
+					<option value="750000">€ 750.000</option>
+					<option value="800000">€ 800.000</option>
+					<option value="900000">€ 900.000</option>
+					<option value="1000000">€ 1.000.000</option>
+					<option value="1250000">€ 1.250.000</option>
+					<option value="1500000">€ 1.500.000</option>
+					<option value="2000000">€ 2.000.000</option>
+					<option value="2500000">€ 2.500.000</option>
+					<option value="3000000">€ 3.000.000</option>
+					<option value="3500000">€ 3.500.000</option>
+					<option value="4000000">€ 4.000.000</option>
+					<option value="4500000">€ 4.500.000</option>
+					<option value="5000000">€ 5.000.000</option>
+					<option selected value="ignore_filter">Geen maximum</option>
+				</select>
+			</td>
+			@*<td>Tot <input type="number" name="price_maximum" value="@Model.Price_Maximum" class="main-input" /></td>*@
+		</tr>
+		<tr>
+			<td><b>Oppervlakte</b></td>
+		</tr>
+		<tr>
+			<td class="label-input">Binnen: </td>
+			<td>
+				<select name="indoorArea_minimum">
+					<option value="other">Anders</option>
+					<option selected value="0">0 m²</option>
+					<option value="50">50 m²</option>
+					<option value="100">100 m²</option>
+					<option value="150">150 m²</option>
+					<option value="200">200 m²</option>
+					<option value="300">300 m²</option>
+					<option value="400">400 m²</option>
+					<option value="500">500 m²</option>
+					<option value="600">600 m²</option>
+					<option value="700">700 m²</option>
+					<option value="800">800 m²</option>
+					<option value="900">900 m²</option>
+					<option value="1000">1000 m²</option>
+				</select>
+			</td>
+			<td>
+				<select name="indoorArea_maximum">
+					<option value="other">Anders</option>
+					<option value="0">0 m²</option>
+					<option value="50">50 m²</option>
+					<option value="100">100 m²</option>
+					<option value="150">150 m²</option>
+					<option value="200">200 m²</option>
+					<option value="300">300 m²</option>
+					<option value="400">400 m²</option>
+					<option value="500">500 m²</option>
+					<option value="600">600 m²</option>
+					<option value="700">700 m²</option>
+					<option value="800">800 m²</option>
+					<option value="900">900 m²</option>
+					<option value="1000">1000 m²</option>
+					<option selected value="ignore_filter">Geen maximum</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="label-input">Buiten: </td>
+			<td>
+				<select name="outdoorArea_minimum">
+					<option value="other">Anders</option>
+					<option selected value="0">0 m²</option>
+					<option value="50">50 m²</option>
+					<option value="100">100 m²</option>
+					<option value="150">150 m²</option>
+					<option value="200">200 m²</option>
+					<option value="300">300 m²</option>
+					<option value="400">400 m²</option>
+					<option value="500">500 m²</option>
+					<option value="600">600 m²</option>
+					<option value="700">700 m²</option>
+					<option value="800">800 m²</option>
+					<option value="900">900 m²</option>
+					<option value="1000">1000 m²</option>
+				</select>
+			</td>
+			<td>
+				<select name="outdoorArea_maximum">
+					<option value="other">Anders</option>
+					<option value="0">0 m²</option>
+					<option value="50">50 m²</option>
+					<option value="100">100 m²</option>
+					<option value="150">150 m²</option>
+					<option value="200">200 m²</option>
+					<option value="300">300 m²</option>
+					<option value="400">400 m²</option>
+					<option value="500">500 m²</option>
+					<option value="600">600 m²</option>
+					<option value="700">700 m²</option>
+					<option value="800">800 m²</option>
+					<option value="900">900 m²</option>
+					<option value="1000">1000 m²</option>
+					<option selected value="ignore_filter">Geen maximum</option>
+				</select>
+			</td>
+		</tr>
+		<tr class="more-options">
+			<td class="label-input">Bouwjaar: </td>
+			<td>
+				<select name="buildYear_minimum">
+					<option value="other">Anders</option>
+					<option selected value="0">0</option>
+					<option value="1600">1600</option>
+					<option value="1700">1700</option>
+					<option value="1800">1800</option>
+					<option value="1900">1900</option>
+					<option value="1920">1920</option>
+					<option value="1950">1950</option>
+					<option value="1970">1970</option>
+					<option value="1980">1980</option>
+					<option value="1990">1990</option>
+					<option value="2000">2000</option>
+					<option value="2010">2010</option>
+					<option value="2015">2015</option>
+				</select>
+			</td>
+			<td>
+				<select name="buildYear_maximum">
+					<option value="other">Anders</option>
+					<option value="0">0</option>
+					<option value="1600">1600</option>
+					<option value="1700">1700</option>
+					<option value="1800">1800</option>
+					<option value="1900">1900</option>
+					<option value="1920">1920</option>
+					<option value="1950">1950</option>
+					<option value="1970">1970</option>
+					<option value="1980">1980</option>
+					<option value="1990">1990</option>
+					<option value="2000">2000</option>
+					<option value="2010">2010</option>
+					<option value="2015">2015</option>
+					<option selected value="ignore_filter">Geen maximum</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input class="full-input button-input" type="submit" value="Zoek" /></td>
+			<td><button type="button" onclick="toggleMoreOptions()">Meer opties</button></td>
+		</tr>
+	</table>
 </form>
 
 @if (Model.IsInitialized)
@@ -33,4 +242,19 @@
 		</a>
 	</div>
 	<hr />
+}
+
+@section Scripts {
+	<script>
+		function toggleMoreOptions() {
+			var options = document.getElementsByClassName("more-options");
+			for (var i = 0; i < options.length; i++) {
+				if (options[i].style.display === "none") {
+					options[i].style.display = "table-row";
+				} else {
+					options[i].style.display = "none";
+				}
+			}
+		}
+	</script>
 }

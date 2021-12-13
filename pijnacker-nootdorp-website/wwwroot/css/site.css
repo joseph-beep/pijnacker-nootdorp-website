@@ -54,14 +54,21 @@ table h1 {
 .full-input {
 	width: 100%;
 }
+.almost-full-input {
+	width: 75%;
+}
 
-table input {
+input {
 	border-radius: 5px;
 	padding: 10px;
 	border: 1px solid #ccc;
 }
-table input:hover {
+input:hover {
 	border: 1px solid black;
+}
+
+.search-input {
+	text-align: center;
 }
 
 .button-input {
