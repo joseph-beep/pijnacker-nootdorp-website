@@ -40,3 +40,50 @@ li img {
 	height: 100px;
 	float: left;
 }
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+table h1 {
+	text-align: center;
+}
+
+.full-input {
+	width: 100%;
+}
+
+table input {
+	border-radius: 5px;
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+table input:hover {
+	border: 1px solid black;
+}
+
+.button-input {
+	background-color: #0062CD;
+	color: white;
+	border: none;
+}
+.button-input:hover {
+	background-color: #0053B2;
+	border: none;
+}
+
+.main-input {
+	width: 30vw;
+}
+
+.label-input {
+	padding-right: 30px;
+}
+
+.div-full-centered {
+	position: fixed;
+	top: 25%;
+	width: 100%;
+}

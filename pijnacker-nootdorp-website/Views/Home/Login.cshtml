@@ -4,19 +4,39 @@
 	ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
-<form method="post">
-	@if (Model.EmailIsWrong)
-	{
-		<br />
-		<p>Wij herkennen deze e-mail niet. Misschien moet u eerst registreren?</p> <a href="/register">Registreer hier!</a><br /><br />
-	}
-	Email Address: <input type="text" name="email" value="@Model.Email" />
-	@Html.ValidationMessageFor(m => m.Email)<br />
-	Password: <input type="password" name="password" id="password" autocomplete="off" value="@Model.Password" />
-	@Html.ValidationMessageFor(m => m.Password)    <input type="checkbox" onclick="togglePassword()">Show Password<br />
-	<input type="submit" value="Login" />
-</form>
+<div class="div-full-centered">
+    <form method="post">
+        @if (Model.EmailIsWrong)
+        {
+            <br />
+            <p>Wij herkennen deze e-mail niet. Misschien moet u eerst registreren?</p> <a href="/register">Registreer hier!</a><br /><br />
+        }
+        <table>
+            <tr>
+                <td></td>
+                <td><h1>Login</h1></td>
+            </tr>
+            <tr>
+                <td class="label-input">Email Address: </td>
+                <td><input type="text" name="email" value="@Model.Email" class="main-input" /></td>
+                <td>@Html.ValidationMessageFor(m => m.Email)</td>
+            </tr>
+            <tr>
+                <td class="label-input">Password: </td>
+                <td><input type="password" name="password" id="password" autocomplete="off" value="@Model.Password" class="main-input" /></td>
+                <td><input type="checkbox" onclick="togglePassword()"> Toon wachtwoord</td>
+                <td>@Html.ValidationMessageFor(m => m.Password)</td>
+            </tr>
+            <tr>
+                <td><br /></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input class="full-input button-input" type="submit" value="Login" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
 
 @section Scripts {
 	<script>
