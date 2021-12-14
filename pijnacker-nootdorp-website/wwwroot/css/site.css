@@ -86,16 +86,12 @@ footer {
 	padding-bottom: 0.5vw;
 }
 
-.more-options {
-	display: none;
-}
-
 .search-container {
 	display: block;
 	padding-top: 8vw;
 	padding-left: 4vw;
 	padding-right: 4vw;
-	padding-bottom: 2vw;
+	padding-bottom: 0vw;
 	background-color: #0062CD;
 	color: white;
 	border-radius: 0.5vw;
@@ -104,6 +100,10 @@ footer {
 	display: flex;
 	flex-wrap: wrap;
 	padding: 0.25vw;
+	height: 2vw;
+}
+.more-options {
+	transition: all 0.25s;
 }
 .search-container .centered {
 	justify-content: center;
@@ -163,7 +163,7 @@ footer {
 }
 .search-container h3 {
 	text-align: right;
-	font-size: 2vw;
+	font-size: 1.25vw;
 	padding: 0;
 	margin: 0;
 	font-weight: lighter;
@@ -187,4 +187,9 @@ footer {
 	border-radius: 0.5vw;
 	font-size: 1vw;
 	margin-left: 0.75vw;
+}
+.search-container button[type=button] {
+	background-color: transparent;
+	border: none;
+	color: white;
 }
