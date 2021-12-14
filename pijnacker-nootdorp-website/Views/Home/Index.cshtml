@@ -698,7 +698,7 @@
 		function toggleMoreOptions() {
 			var options = document.getElementsByClassName("more-options");
 			for (var i = 0; i < options.length; i++) {
-				if (options[i].style.height == "0px") {
+				if (options[i].style.height == "0px" || options[i].style.height == "") {
 					options[i].style.height = "7vw";
 					options[i].style.opacity = "1";
 					options[i].style.pointerEvents = "auto";
