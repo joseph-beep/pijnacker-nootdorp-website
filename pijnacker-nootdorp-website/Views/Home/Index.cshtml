@@ -3,13 +3,195 @@
 @{
 	ViewData["Title"] = "Home Page";
 }
+@*<div class="search-container">
+	<form>
+		<table>
+			<tr>
+				<td>
+					<label for="name">
+						Name
+					</label>
+				</td>
+				<td colspan="2">
+					<input type="text" id="name" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="name">
+						Name
+					</label>
+				</td>
+				<td>
+					<input type="text" id="name" />
+				</td>
+				<td>
+					<input type="text" id="name" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="email">
+						Email
+					</label>
+				</td>
+				<td>
+					<input type="text" id="name" />
+				</td>
+				<td>
+					<input type="text" id="name" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="telnum">
+						Tel No.
+					</label>
+				</td>
+				<td>
+					<input type="text" id="name" />
+				</td>
+				<td>
+					<input type="text" id="name" />
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<button onclick="toggleMoreOptions()">Meer opties</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="Roll No.">
+						Roll No.
+					</label>
+				</td>
+				<td>
+					<input type="text" id="name" />
+				</td>
+				<td>
+					<input type="text" id="name" />
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>*@
 
-<form method="post" class="search-container">
+<div class="search-container">
+	<div class="row">
+		<div class="one-fourth-cell centered">
+			<h3>Zoeken: </h3>
+		</div>
+		<div class="one-fourth-cell centered">
+			<input type="text" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="one-third-cell centered">
+			<h3>Prijs: </h3>
+		</div>
+		<div class="one-fourth-cell">
+			<h4>Van: </h4>
+			<select name="price_minimum">
+				<option value="other">Anders</option>
+				<option selected value="0">€ 0</option>
+				<option value="50000">€ 50.000</option>
+				<option value="75000">€ 75.000</option>
+				<option value="100000">€ 100.000</option>
+				<option value="125000">€ 125.000</option>
+				<option value="150000">€ 150.000</option>
+				<option value="175000">€ 175.000</option>
+				<option value="200000">€ 200.000</option>
+				<option value="225000">€ 225.000</option>
+				<option value="250000">€ 250.000</option>
+				<option value="275000">€ 275.000</option>
+				<option value="300000">€ 300.000</option>
+				<option value="325000">€ 325.000</option>
+				<option value="350000">€ 350.000</option>
+				<option value="375000">€ 375.000</option>
+				<option value="400000">€ 400.000</option>
+				<option value="450000">€ 450.000</option>
+				<option value="500000">€ 500.000</option>
+				<option value="550000">€ 550.000</option>
+				<option value="600000">€ 600.000</option>
+				<option value="650000">€ 650.000</option>
+				<option value="700000">€ 700.000</option>
+				<option value="750000">€ 750.000</option>
+				<option value="800000">€ 800.000</option>
+				<option value="900000">€ 900.000</option>
+				<option value="1000000">€ 1.000.000</option>
+				<option value="1250000">€ 1.250.000</option>
+				<option value="1500000">€ 1.500.000</option>
+				<option value="2000000">€ 2.000.000</option>
+				<option value="2500000">€ 2.500.000</option>
+				<option value="3000000">€ 3.000.000</option>
+				<option value="3500000">€ 3.500.000</option>
+				<option value="4000000">€ 4.000.000</option>
+				<option value="4500000">€ 4.500.000</option>
+				<option value="5000000">€ 5.000.000</option>
+			</select>
+		</div>
+		<div class="one-fourth-cell">
+			<h4>Tot: </h4>
+			<select name="price_minimum">
+				<option value="other">Anders</option>
+				<option selected value="0">€ 0</option>
+				<option value="50000">€ 50.000</option>
+				<option value="75000">€ 75.000</option>
+				<option value="100000">€ 100.000</option>
+				<option value="125000">€ 125.000</option>
+				<option value="150000">€ 150.000</option>
+				<option value="175000">€ 175.000</option>
+				<option value="200000">€ 200.000</option>
+				<option value="225000">€ 225.000</option>
+				<option value="250000">€ 250.000</option>
+				<option value="275000">€ 275.000</option>
+				<option value="300000">€ 300.000</option>
+				<option value="325000">€ 325.000</option>
+				<option value="350000">€ 350.000</option>
+				<option value="375000">€ 375.000</option>
+				<option value="400000">€ 400.000</option>
+				<option value="450000">€ 450.000</option>
+				<option value="500000">€ 500.000</option>
+				<option value="550000">€ 550.000</option>
+				<option value="600000">€ 600.000</option>
+				<option value="650000">€ 650.000</option>
+				<option value="700000">€ 700.000</option>
+				<option value="750000">€ 750.000</option>
+				<option value="800000">€ 800.000</option>
+				<option value="900000">€ 900.000</option>
+				<option value="1000000">€ 1.000.000</option>
+				<option value="1250000">€ 1.250.000</option>
+				<option value="1500000">€ 1.500.000</option>
+				<option value="2000000">€ 2.000.000</option>
+				<option value="2500000">€ 2.500.000</option>
+				<option value="3000000">€ 3.000.000</option>
+				<option value="3500000">€ 3.500.000</option>
+				<option value="4000000">€ 4.000.000</option>
+				<option value="4500000">€ 4.500.000</option>
+				<option value="5000000">€ 5.000.000</option>
+			</select>
+		</div>
+	</div>
+	<div class="row">
+		<div class="one-fourth-cell">
+		</div>
+		<div class="one-fourth-cell">
+			<input type="submit" />
+		</div>
+		<div class="one-fourth-cell">
+		</div>
+	</div>
+</div>
+
+@*<form method="post" class="search-container">
 	<table>
 		<tr>
 			<td class="label-input">Zoeken: </td>
-			<td colspan="2"><input type="text" name="searchQuery" value="@Model.SearchQuery" class="search-input"></tdcolspan="2">
+			<td colspan="2"><input type="text" name="searchQuery" value="@Model.SearchQuery" class="search-input"></td>
 		</tr>
+		<tr><td><br /></td></tr>
 		<tr>
 			<td class="label-input">Prijs: </td>
 			<td>
@@ -94,6 +276,13 @@
 			</td>
 		</tr>
 		<tr>
+			<td></td>
+			<td><button class="full-input button-input" type="button" onclick="toggleMoreOptions()">Meer opties</button></td>
+		</tr>
+		<tr><td><br /></td></tr>
+	</table>
+	<table class="more-options">
+		<tr>
 			<td class="label-input">Binnen: </td>
 			<td>
 				Van: <select name="indoorArea_minimum">
@@ -173,6 +362,7 @@
 				</select>
 			</td>
 		</tr>
+		<tr><td><br /></td></tr>
 		<tr>
 			<td class="label-input">Bouwjaar: </td>
 			<td>
@@ -221,12 +411,13 @@
 				<input name="publicTransport" type="checkbox" checked="@Model.PublicTransport">Openbaar vervoer<br />
 			</td>
 		</tr>
+		<tr><td><br /></td></tr>
 		<tr>
 			<td></td>
 			<td><input class="full-input button-input" type="submit" value="Zoek" /></td>
 		</tr>
 	</table>
-</form>
+</form>*@
 
 @foreach (var house in Model.Houses)
 {
@@ -253,6 +444,17 @@
 				document.getElementsByName("indoorArea_maximum")[0].value = "@Model.IndoorArea_Maximum";
 				document.getElementsByName("buildYear_minimum")[0].value = "@Model.BuildYear_Minimum";
 				document.getElementsByName("buildYear_maximum")[0].value = "@Model.BuildYear_Maximum";
+			}
+		}
+
+		function toggleMoreOptions() {
+			var options = document.getElementsByClassName("more-options");
+			for (var i = 0; i < options.length; i++) {
+				if (options[i].style.display == "none") {
+					options[i].style.display = "table";
+				} else {
+					options[i].style.display = "none";
+				}
 			}
 		}
 	</script>

@@ -37,13 +37,6 @@
 	color: black;
 }
 
-.search-container {
-	background-color: #0062CD;
-	color: white;
-	padding-top: 9vw;
-	padding-bottom: 2vw;
-}
-
 .house-list-element {
 	height: 12vw;
 }
@@ -88,88 +81,76 @@
 	-ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
 }
 
-table {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: left;
-}
-
-table h1 {
-	text-align: center;
-}
-
-.full-input {
-	width: 100%;
-}
-.almost-full-input {
-	width: 75%;
-}
-
-input {
-	border-radius: 0.5vw;
-	padding: 10px;
-	border: 1px solid #ccc;
-}
-input:hover {
-	border: 1px solid black;
-}
-
-.search-input {
-	width: 93%;
-	padding: 1vw;
-	border: none;
-	height: 3vw;
-	padding-top: 0vw;
-	padding-bottom: 0vw;
-	font-size: 1.125vw;
-	transition: outline-width 0.5s;
-	transition: outline-color 0.5s;
-	outline: white solid 0px;
-}
-.search-input:hover {
-	border: none;
-	outline: #bbb solid 1px;
-}
-.search-input:focus {
-	border: none;
-	outline: black solid 1px;
-}
-
-.button-input {
-	background-color: white;
-	color: black;
-	border: none;
-}
-.button-input:hover {
-	background-color: lightgrey;
-	border: none;
-}
-
-.main-input {
-	width: 30vw;
-}
-
-.label-input {
-	padding-right: 30px;
-	font-size: 1.125vw;
-	text-align: right;
-}
-
-.div-full-centered {
-	position: fixed;
-	top: 25%;
-	width: 100%;
-}
-
 footer {
 	padding-top: 2vw;
 	padding-bottom: 0.5vw;
 }
 
-select {
-	padding: 0.5vw;
+.more-options {
+	display: none;
+}
+
+.search-container {
+	display: block;
+	padding-top: 8vw;
+	padding-left: 10vw;
+	padding-right: 10vw;
+	padding-bottom: 2vw;
+	background-color: #0062CD;
+	color: white;
+	border-radius: 0.5vw;
+}
+.search-container .row {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0.25vw;
+}
+.search-container .centered {
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	display: flex;
+}
+.search-container .single-cell {
+	flex: 0 0 50%;
+	max-width: 50%;
+}
+.search-container .double-cell {
+	flex: 0 0 100%;
+	max-width: 100%;
+}
+.search-container .one-third-cell {
+	flex: 0 0 33.3%;
+	max-width: 33.3%;
+}
+.search-container .two-third-cell {
+	flex: 0 0 66.6%;
+	max-width: 66.6%;
+}
+.search-container .one-fourth-cell {
+	flex: 0 0 25%;
+	max-width: 25%;
+}
+.search-container select {
+	width: calc(100% - 1vw);
+	height: 3vw;
+	padding-left: 1vw;
+	padding-right: 1vw;
+	font-size: 1.25vw;
 	border-radius: 0.5vw;
 	border: none;
+}
+.search-container h4 {
 	font-size: 1vw;
-	width: 15vw;
+	padding: 0;
+	margin: 0;
+	font-weight: lighter;
+}
+.search-container h3 {
+	text-align: right;
+	font-size: 2vw;
+	padding: 0;
+	margin: 0;
+	font-weight: lighter;
+	padding-right: 1vw;
 }

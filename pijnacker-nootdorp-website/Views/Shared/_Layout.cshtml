@@ -25,19 +25,19 @@
 	</div>
 
 	@*<ul>
-		<li><img src="~/assets/icon.png" /></li>
-		<li><a asp-area="" asp-controller="Home" asp-action="Index">Huizen in Pijnacker-Nootdorp</a></li>
-		@if (Website.User != null)
-		{
-			<li class="right"><a asp-area="" asp-controller="Home" asp-action="Cart">Hallo, @Website.User.FirstName</a></li>
-			<li class="right"><a asp-area="" asp-controller="Home" asp-action="Logout">Log uit</a></li>
-			<li class="right"><a asp-area="" asp-controller="Home" asp-action="Cart">Winkelmandje</a></li>
-		}
-		else
-		{
-			<li class="right"><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
-		}
-	</ul>*@
+			<li><img src="~/assets/icon.png" /></li>
+			<li><a asp-area="" asp-controller="Home" asp-action="Index">Huizen in Pijnacker-Nootdorp</a></li>
+			@if (Website.User != null)
+			{
+				<li class="right"><a asp-area="" asp-controller="Home" asp-action="Cart">Hallo, @Website.User.FirstName</a></li>
+				<li class="right"><a asp-area="" asp-controller="Home" asp-action="Logout">Log uit</a></li>
+				<li class="right"><a asp-area="" asp-controller="Home" asp-action="Cart">Winkelmandje</a></li>
+			}
+			else
+			{
+				<li class="right"><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>
+			}
+		</ul>*@
 
 	<div class="container">
 		<main role="main" class="pb-3">
