@@ -5,22 +5,22 @@
 }
 
 <div class="details-container">
-    <div class="slideshow">
-        <button type="button" onclick="leftSlide()" class="slide-button"> <img src="~/assets/arrow.png" /> </button>
-        <div class="slide">
-            <img src="@Model.Picture" />
-            <h2>Titel1</h2>
-        </div>
-        <div class="slide">
-            <img src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg" />
-            <h2>Titel2</h2>
-        </div>
-        <div class="slide">
-            <img src="https://cdn.vox-cdn.com/thumbor/6itLJS9BZ-B5gXPjM1AB_z-ZKVI=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/65890203/iStock_1067331614.7.jpg" />
-            <h2>Titel3</h2>
-        </div>
-        <button type="button" onclick="rightSlide()" class="slide-button"> <img src="~/assets/right-arrow.png" /> </button>
-    </div>
+	<div class="slideshow">
+		<button type="button" onclick="leftSlide()" class="slide-button"> <img src="~/assets/arrow.png" /> </button>
+		<div class="slide">
+			<img src="@Model.Picture" />
+			<h2>Titel1</h2>
+		</div>
+		<div class="slide">
+			<img src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg" />
+			<h2>Titel2</h2>
+		</div>
+		<div class="slide">
+			<img src="https://cdn.vox-cdn.com/thumbor/6itLJS9BZ-B5gXPjM1AB_z-ZKVI=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/65890203/iStock_1067331614.7.jpg" />
+			<h2>Titel3</h2>
+		</div>
+		<button type="button" onclick="rightSlide()" class="slide-button"> <img src="~/assets/right-arrow.png" /> </button>
+	</div>
 
 	<div class="highlight-container">
 		<h1 class="address">@Model.Address</h1>
@@ -28,49 +28,53 @@
 		<a class="add-cart-button" href="/cart/add/@Model.Id"><img src="~/assets/cart.png" /></a>
 	</div>
 
-    <hr />
-    <p>€@TextUtilities.BeautifyNumber(Model.Price)</p>
-    <br />
-    <p>Bouwjaar: @Model.BuildYear</p>
-    <p>@Model.IndoorArea m² binnen</p>
-    <p>@Model.OutdoorArea m² buiten</p>
-    <br />
-    <h2>Omschrijving</h2>
-    <p>@Model.Description</p>
-    <br />
-    <h2>Structuur</h2>
-    @foreach (var storey in Model.Layout.storeys)
-    {
-        <h3>Storey @storey.level</h3>
-        foreach (var room in storey.rooms)
-        {
-            <p>@room.type.ToString() : @room.amount</p>
-        }
-        <br />
-    }
+	<div class="description">
+		<h2>Omschrijving</h2>
+		<p>@Model.Description</p>
+	</div>
 
-    @{
-        List<int> digits = NumberUtilities.GetDigits(Model.Access);
-        House.Accessibility[] values = Enum.GetValues<House.Accessibility>();
+	<div class="specifications">
+		<h2>Specificaties</h2>
+		<p>Bouwjaar: @Model.BuildYear</p>
+		<p>@Model.IndoorArea m² binnen</p>
+		<p>@Model.OutdoorArea m² buiten</p>
+		<p>Toegankelijkheid:</p>
+		@{
+			List<int> digits = NumberUtilities.GetDigits(Model.Access);
+			House.Accessibility[] values = Enum.GetValues<House.Accessibility>();
 
-        digits.Reverse();
+			digits.Reverse();
 
-        for (int i = 0; i < values.Length; i++)
-        {
-            if (i >= digits.Count || digits[i] == 0)
-            {
-                <p>HEEFT NIET: @values[i].ToString()</p>
-            }
-            else if (digits[i] == 1)
-            {
-                <p>HEEFT: @values[i].ToString()</p>
-            }
-            else
-            {
-                <p>GEEN DATA OVER @values[i].ToString()</p>
-            }
-        }
-    }
+			for (int i = 0; i < values.Length; i++)
+			{
+				if (i >= digits.Count || digits[i] == 0)
+				{
+					<p>HEEFT NIET: @values[i].ToString()</p>
+				}
+				else if (digits[i] == 1)
+				{
+					<p>HEEFT: @values[i].ToString()</p>
+				}
+				else
+				{
+					<p>GEEN DATA OVER @values[i].ToString()</p>
+				}
+			}
+		}
+	</div>
+
+	<div class="structure">
+		<h2>Structuur</h2>
+		@foreach (var storey in Model.Layout.storeys)
+		{
+			<h3>Storey @storey.level</h3>
+			foreach (var room in storey.rooms)
+			{
+				<p>@room.type.ToString() : @room.amount</p>
+			}
+			<br />
+		}
+	</div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |

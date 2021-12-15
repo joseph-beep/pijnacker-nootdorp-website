@@ -305,3 +305,35 @@
 			padding-left: 3vw;
 			border-radius: 1vw 0vw 0vw 1vw;
 		}
+		.details-container .specifications {
+			background-color: #eee;
+			padding: 2vw;
+			border-radius: 1vw;
+		}
+		.details-container .specifications h2 {
+			margin: 0;
+			font-size: 1.25vw;
+			font-weight: bold;
+		}
+		.details-container .description {
+			padding: 2vw;
+			border-radius: 1vw;
+		}
+		.details-container .description h2 {
+			margin: 0;
+			font-size: 1.25vw;
+			font-weight: bold;
+		}
+		.details-container .description p {
+			margin: 0;
+			margin-top: 1vw;
+		}
+		.details-container .structure {
+			padding: 2vw;
+			border-radius: 1vw;
+		}
+		.details-container .structure h2 {
+			margin: 0;
+			font-size: 1.25vw;
+			font-weight: bold;
+		}
