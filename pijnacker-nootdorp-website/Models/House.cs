@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 public class House
@@ -27,6 +28,38 @@ public class House
 
     public string Rooms { get; set; }
     public string Picture { get; set; }
+
+    public DateTime? OpenHouseStart { get; set; }
+    public DateTime? OpenHouseEnd { get; set; }
+
+    private TimeData _openHouseStartData = null;
+    public TimeData OpenHouseStartData
+    {
+        get
+        {
+            if (_openHouseStartData == null && OpenHouseStart != null)
+            {
+                _openHouseStartData = new TimeData(OpenHouseStart.Value);
+            }
+
+            return _openHouseStartData;
+        }
+    }
+
+    private TimeData _openHouseEndData = null;
+    public TimeData OpenHouseEndData
+    {
+        get
+        {
+            if (_openHouseEndData == null && OpenHouseEnd != null)
+            {
+                _openHouseEndData = new TimeData(OpenHouseEnd.Value);
+            }
+
+            return _openHouseEndData;
+        }
+    }
+
 
     private HouseLayout _layout = null;
     public HouseLayout Layout
