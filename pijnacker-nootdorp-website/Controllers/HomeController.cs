@@ -151,6 +151,12 @@ namespace pijnacker_nootdorp_website.Controllers
             return View(user);
         }
 
+        [Route("profile")]
+        public IActionResult Profile()
+        {
+            return View(Website.User);
+        }
+
         [Route("cart")]
         public IActionResult Cart()
         {
