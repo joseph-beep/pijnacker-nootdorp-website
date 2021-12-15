@@ -21,8 +21,8 @@ namespace pijnacker_nootdorp_website
         public void ConfigureServices(IServiceCollection services)
         {
             // Replace with your connection string.
-            string connectionString = "Server=172.16.160.21;Port=3306;Database=110737;Uid=110737;Pwd=infsql2021;";
-            //string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110737;Uid=110737;Pwd=infsql2021;";
+            //string connectionString = "Server=172.16.160.21;Port=3306;Database=110737;Uid=110737;Pwd=infsql2021;";
+            string connectionString = "Server=informatica.st-maartenscollege.nl;Port=3306;Database=110737;Uid=110737;Pwd=infsql2021;";
 
             // Replace with your server version and type.
             // Use 'MariaDbServerVersion' for MariaDB.

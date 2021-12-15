@@ -220,6 +220,7 @@ footer {
 .details-container img {
 	height: 25vw;
 	margin: 2vw;
+	margin-top: 0;
 }
 .details-container .slide {
 	flex: 0 0 80%;
@@ -229,4 +230,9 @@ footer {
 .details-container .slide-button {
 	flex: 0 0 10%;
 	max-width: 10%;
+	background-color: white;
+	border: none;
+}
+.details-container .slide-button img {
+	height: 2vw;
 }
