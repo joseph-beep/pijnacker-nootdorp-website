@@ -111,12 +111,14 @@
 				<dd>Warren Buffett</dd>
 				<dt class="bottom">Kantoor van verkoper</dt>
 				<dd class="bottom">Delft</dd>
-
 			</dl>
 		</div>
 
-		<a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Open+Dag+@Model.Address&location=@Model.Address&dates=@TimeData.ConvertToGoogleCalendarFormat(Model.OpenHouseStartData, Model.OpenHouseEndData)" target="_blank"><img src="~/assets/calendar.png" /></a>
-		<a><img src="~/assets/maps.png" /></a>
+		<div class="app">
+			<h2>Tip</h2>
+			<p>Voeg open dag aan uw Google Calendar toe:</p>
+			<a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Open+Dag+@Model.Address&location=@Model.Address&dates=@TimeData.ConvertToGoogleCalendarFormat(Model.OpenHouseStartData, Model.OpenHouseEndData)" target="_blank"><img src="~/assets/calendar.png" /></a>
+		</div>
 
 		<iframe class="map" src="https://maps.google.com/maps?q=@Model.Address&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 	</div>
