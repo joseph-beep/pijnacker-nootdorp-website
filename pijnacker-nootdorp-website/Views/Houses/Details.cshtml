@@ -8,21 +8,26 @@
     <div class="slideshow">
         <button type="button" onclick="leftSlide()" class="slide-button"> <img src="~/assets/arrow.png" /> </button>
         <div class="slide">
-            <h1>Titel1</h1>
             <img src="@Model.Picture" />
+            <h2>Titel1</h2>
         </div>
         <div class="slide">
-            <h1>Titel2</h1>
             <img src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg" />
+            <h2>Titel2</h2>
         </div>
         <div class="slide">
-            <h1>Titel3</h1>
             <img src="https://cdn.vox-cdn.com/thumbor/6itLJS9BZ-B5gXPjM1AB_z-ZKVI=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/65890203/iStock_1067331614.7.jpg" />
+            <h2>Titel3</h2>
         </div>
         <button type="button" onclick="rightSlide()" class="slide-button"> <img src="~/assets/right-arrow.png" /> </button>
     </div>
 
-    <h1>@Model.Address</h1>
+	<div class="highlight-container">
+		<h1 class="address">@Model.Address</h1>
+		<h2 class="cost">€@TextUtilities.BeautifyNumber(Model.Price)</h2>
+		<a class="add-cart-button" href="/cart/add/@Model.Id"><img src="~/assets/cart.png" /></a>
+	</div>
+
     <hr />
     <p>€@TextUtilities.BeautifyNumber(Model.Price)</p>
     <br />
