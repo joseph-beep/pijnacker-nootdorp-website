@@ -218,11 +218,13 @@ footer {
 	width: 100%;
 }
 .details-container img {
-	width: 100%;
+	height: 25vw;
+	margin: 2vw;
 }
 .details-container .slide {
 	flex: 0 0 80%;
 	max-width: 80%;
+	text-align: center;
 }
 .details-container .slide-button {
 	flex: 0 0 10%;
