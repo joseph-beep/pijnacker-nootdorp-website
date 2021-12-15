@@ -28,54 +28,68 @@
 		<a class="add-cart-button" href="/cart/add/@Model.Id"><img src="~/assets/cart.png" /></a>
 	</div>
 
-	<div class="description">
-		<h2>Omschrijving</h2>
-		<p>@Model.Description</p>
-	</div>
+	<div class="main">
+		<div class="description">
+			<h2>Omschrijving</h2>
+			<p>@Model.Description</p>
+		</div>
 
-	<div class="specifications">
-		<h2>Specificaties</h2>
-		<p>Bouwjaar: @Model.BuildYear</p>
-		<p>@Model.IndoorArea m² binnen</p>
-		<p>@Model.OutdoorArea m² buiten</p>
-		<p>Toegankelijkheid:</p>
-		@{
-			List<int> digits = NumberUtilities.GetDigits(Model.Access);
-			House.Accessibility[] values = Enum.GetValues<House.Accessibility>();
-
-			digits.Reverse();
-
-			for (int i = 0; i < values.Length; i++)
-			{
-				if (i >= digits.Count || digits[i] == 0)
+		<div class="specifications">
+			<h2>Specificaties</h2>
+			<dl>
+				<dt>Bouwjaar</dt>
+				<dd>@Model.BuildYear A.D.</dd>
+				<dt>Binnen oppervlakte</dt>
+				<dd>@Model.IndoorArea m²</dd>
+				<dt class="bottom">Buiten oppervlakte</dt>
+				<dd class="bottom">@Model.OutdoorArea m²</dd>
+			</dl>
+			<h3>Toegankelijkheid</h3>
+			<dl>
+				<dt>Rolstoel</dt>
+				@if (Model.AccessData.wheelchair)
 				{
-					<p>HEEFT NIET: @values[i].ToString()</p>
-				}
-				else if (digits[i] == 1)
-				{
-					<p>HEEFT: @values[i].ToString()</p>
+					<dd>Prima</dd>
 				}
 				else
 				{
-					<p>GEEN DATA OVER @values[i].ToString()</p>
+					<dd>Niet aan te raden</dd>
 				}
-			}
-		}
-	</div>
+				<dt>Auto</dt>
+				@if (Model.AccessData.car)
+				{
+					<dd>Prima</dd>
+				}
+				else
+				{
+					<dd>Niet aan te raden</dd>
+				}
+				<dt class="bottom">Openbaar vervoer</dt>
+				@if (Model.AccessData.publicTransport)
+				{
+					<dd class="bottom">Bereikbaar</dd>
+				}
+				else
+				{
+					<dd class="bottom">Niet handig</dd>
+				}
+			</dl>
+		</div>
 
-	<div class="structure">
-		<h2>Structuur</h2>
-		@foreach (var storey in Model.Layout.storeys)
-		{
-			<h3>Storey @storey.level</h3>
-			foreach (var room in storey.rooms)
+		<div class="structure">
+			<h2>Structuur</h2>
+			@foreach (var storey in Model.Layout.storeys)
 			{
-				<p>@room.type.ToString() : @room.amount</p>
+				<h3>Storey @storey.level</h3>
+				foreach (var room in storey.rooms)
+				{
+					<p>@room.type.ToString() : @room.amount</p>
+				}
+				<br />
 			}
-			<br />
-		}
+		</div>
 	</div>
-
+	
 	<div class="highlight-container">
 		<h1 class="address">@Model.Address</h1>
 		<h2 class="cost">€@TextUtilities.BeautifyNumber(Model.Price)</h2>
