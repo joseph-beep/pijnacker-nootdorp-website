@@ -339,13 +339,13 @@
 		.details-container h2.middle {
 			margin-top: 5vw;
 		}
-	.details-container .specifications dl {
+	.details-container dl {
 		width: 100%;
 		overflow: hidden;
 		padding: 0;
 		margin: 0
 	}
-		.details-container .specifications dt {
+		.details-container dt {
 			float: left;
 			width: 20%;
 			padding: 0;
@@ -356,7 +356,7 @@
 			color: #444;
 			font-size: 1vw;
 		}
-		.details-container .specifications dd {
+		.details-container dd {
 			float: left;
 			width: 20%;
 			padding: 0;
@@ -376,4 +376,8 @@
 			margin-bottom: 2vw;
 			-webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
 			box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+		}
+		.details-container .contact {
+			padding: 2vw;
+			margin-bottom: 2vw;
 		}
