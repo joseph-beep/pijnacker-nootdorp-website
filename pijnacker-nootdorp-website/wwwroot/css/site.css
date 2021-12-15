@@ -309,6 +309,7 @@
 			background-color: #eee;
 			padding: 2vw;
 			border-radius: 1vw;
+			margin-bottom: 2vw;
 		}
 		.details-container .description {
 			padding: 2vw;
@@ -316,10 +317,6 @@
 		}
 		.details-container .description p {
 			margin: 0;
-		}
-		.details-container .structure {
-			padding: 2vw;
-			border-radius: 1vw;
 		}
 		.details-container .main h2 {
 			margin: 0;
@@ -338,6 +335,9 @@
 		.details-container .main {
 			padding-left: 5vw;
 			padding-right: 5vw;
+		}
+		.details-container h2.middle {
+			margin-top: 5vw;
 		}
 	.details-container .specifications dl {
 		width: 100%;

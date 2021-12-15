@@ -74,18 +74,25 @@
 					<dd class="bottom">Niet handig</dd>
 				}
 			</dl>
-		</div>
-
-		<div class="structure">
-			<h2>Structuur</h2>
+			<h2 class="middle">Structuur</h2>
 			@foreach (var storey in Model.Layout.storeys)
 			{
-				<h3>Storey @storey.level</h3>
-				foreach (var room in storey.rooms)
-				{
-					<p>@room.type.ToString() : @room.amount</p>
-				}
-				<br />
+				<h3>@TextUtilities.TranslateStorey(storey.level)</h3>
+				<dl>
+					@for (int i = 0; i < storey.rooms.Length; i++)
+					{
+						@if (i == storey.rooms.Length - 1)
+						{
+							<dt class="bottom">@TextUtilities.TranslateRoomType(storey.rooms[i].type.ToString(), true)</dt>
+							<dd class="bottom">@storey.rooms[i].amount</dd>
+						}
+						else
+						{
+							<dt>@TextUtilities.TranslateRoomType(storey.rooms[i].type.ToString(), true)</dt>
+							<dd>@storey.rooms[i].amount</dd>
+						}
+					}
+				</dl>
 			}
 		</div>
 	</div>
