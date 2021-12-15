@@ -4,55 +4,114 @@
 	ViewData["Title"] = "Details";
 }
 
-<div>
-	<img src="@Model.Picture" />
-	<h1>@Model.Address</h1>
-	<hr />
-	<p>€@TextUtilities.BeautifyNumber(Model.Price)</p>
-	<br />
-	<p>Bouwjaar: @Model.BuildYear</p>
-	<p>@Model.IndoorArea m² binnen</p>
-	<p>@Model.OutdoorArea m² buiten</p>
-	<br />
-	<h2>Omschrijving</h2>
-	<p>@Model.Description</p>
-	<br />
-	<h2>Structuur</h2>
-	@foreach (var storey in Model.Layout.storeys)
-	{
-		<h3>Storey @storey.level</h3>
-		foreach (var room in storey.rooms)
-		{
-			<p>@room.type.ToString() : @room.amount</p>
-		}
-		<br />
-	}
+<div class="details-container">
+    <div class="slideshow">
+        <button type="button" onclick="leftSlide()" class="slide-button"> < </button>
+        <div class="slide">
+            <h1>Titel1</h1>
+            <img src="@Model.Picture" />
+        </div>
+        <div class="slide">
+            <h1>Titel2</h1>
+            <img src="@Model.Picture" />
+        </div>
+        <div class="slide">
+            <h1>Titel3</h1>
+            <img src="@Model.Picture" />
+        </div>
+        <button type="button" onclick="rightSlide()" class="slide-button"> > </button>
+    </div>
 
-	@{
-		List<int> digits = NumberUtilities.GetDigits(Model.Access);
-		House.Accessibility[] values = Enum.GetValues<House.Accessibility>();
+    <h1>@Model.Address</h1>
+    <hr />
+    <p>€@TextUtilities.BeautifyNumber(Model.Price)</p>
+    <br />
+    <p>Bouwjaar: @Model.BuildYear</p>
+    <p>@Model.IndoorArea m² binnen</p>
+    <p>@Model.OutdoorArea m² buiten</p>
+    <br />
+    <h2>Omschrijving</h2>
+    <p>@Model.Description</p>
+    <br />
+    <h2>Structuur</h2>
+    @foreach (var storey in Model.Layout.storeys)
+    {
+        <h3>Storey @storey.level</h3>
+        foreach (var room in storey.rooms)
+        {
+            <p>@room.type.ToString() : @room.amount</p>
+        }
+        <br />
+    }
 
-		digits.Reverse();
+    @{
+        List<int> digits = NumberUtilities.GetDigits(Model.Access);
+        House.Accessibility[] values = Enum.GetValues<House.Accessibility>();
 
-		for (int i = 0; i < values.Length; i++)
-		{
-			if (i >= digits.Count || digits[i] == 0)
-			{
-				<p>HEEFT NIET: @values[i].ToString()</p>
-			}
-			else if (digits[i] == 1)
-			{
-				<p>HEEFT: @values[i].ToString()</p>
-			}
-			else
-			{
-				<p>GEEN DATA OVER @values[i].ToString()</p>
-			}
-		}
-	}
+        digits.Reverse();
+
+        for (int i = 0; i < values.Length; i++)
+        {
+            if (i >= digits.Count || digits[i] == 0)
+            {
+                <p>HEEFT NIET: @values[i].ToString()</p>
+            }
+            else if (digits[i] == 1)
+            {
+                <p>HEEFT: @values[i].ToString()</p>
+            }
+            else
+            {
+                <p>GEEN DATA OVER @values[i].ToString()</p>
+            }
+        }
+    }
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
     <a href="/cart/add/@Model.Id">Toevoegen aan winkelmandje</a>
 </div>
+
+@section Scripts {
+    <script>
+        var slideIndex = 0;
+        var slides = [];
+
+        window.onload = function () {
+            slides = document.getElementsByClassName("slide");
+
+            setSlides();
+        }
+
+        function rightSlide() {
+            slideIndex++;
+
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+
+            setSlides();
+        }
+
+        function leftSlide() {
+            slideIndex--;
+
+            if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            setSlides();
+        }
+
+        function setSlides() {
+            for (var i = 0; i < slides.length; i++) {
+                if (i == slideIndex) {
+                    slides[i].style.display = "block";
+                } else {
+                    slides[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+}

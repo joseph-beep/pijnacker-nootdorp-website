@@ -210,3 +210,21 @@ footer {
 .search-container .checkbox-label {
 	user-select: none;
 }
+
+.details-container {
+}
+.details-container .slideshow {
+	display: flex;
+	width: 100%;
+}
+.details-container img {
+	width: 100%;
+}
+.details-container .slide {
+	flex: 0 0 80%;
+	max-width: 80%;
+}
+.details-container .slide-button {
+	flex: 0 0 10%;
+	max-width: 10%;
+}
