@@ -4,38 +4,50 @@
 	ViewData["Title"] = "Login";
 }
 
-<div class="div-full-centered">
-    <form method="post">
-        @if (Model.EmailIsWrong)
-        {
-            <br />
-            <p>Wij herkennen deze e-mail niet. Misschien moet u eerst registreren?</p> <a href="/register">Registreer hier!</a><br /><br />
-        }
-        <table>
-            <tr>
-                <td></td>
-                <td><h1>Login</h1></td>
-            </tr>
-            <tr>
-                <td class="label-input">Email Address: </td>
-                <td><input type="text" name="email" value="@Model.Email" class="main-input" /></td>
-                <td>@Html.ValidationMessageFor(m => m.Email)</td>
-            </tr>
-            <tr>
-                <td class="label-input">Password: </td>
-                <td><input type="password" name="password" id="password" autocomplete="off" value="@Model.Password" class="main-input" /></td>
-                <td><input type="checkbox" onclick="togglePassword()"> Toon wachtwoord</td>
-                <td>@Html.ValidationMessageFor(m => m.Password)</td>
-            </tr>
-            <tr>
-                <td><br /></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input class="full-input button-input" type="submit" value="Login" /></td>
-            </tr>
-        </table>
-    </form>
+<div class="full-form">
+	<form method="post">
+		@if (Model.EmailIsWrong)
+		{
+			<br />
+			<p>Wij herkennen deze e-mail niet. Misschien moet u eerst registreren?</p> <a href="/register">Registreer hier!</a><br /><br />
+		}
+		<div class="row">
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<h1>Login</h1>
+			</div>
+		</div>
+		<div class="row"></div>
+		<div class="row">
+			<div class="one-third-cell label-container">
+				<label>Email address:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="text" name="email" value="@Model.Email" />
+			</div>
+			<div class="one-third-cell">
+				@Html.ValidationMessageFor(m => m.Email)
+			</div>
+		</div>
+		<div class="row">
+			<div class="one-third-cell label-container">
+				<label>Password:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="password" name="password" id="password" autocomplete="off" value="@Model.Password" />
+			</div>
+			<div class="one-third-cell">
+				<input type="checkbox" onclick="togglePassword()"> Toon wachtwoord
+				@Html.ValidationMessageFor(m => m.Password)
+			</div>
+		</div>
+		<div class="row">
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<input class="full-input button-input" type="submit" value="Login" />
+			</div>
+		</div>
+	</form>
 </div>
 
 @section Scripts {
