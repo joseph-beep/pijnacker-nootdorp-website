@@ -4,41 +4,64 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="div-full-centered">
+<div class="full-form">
 	<form method="post">
-		<table>
-			<tr>
-				<td></td>
-				<td><h1>Registreer</h1></td>
-			</tr>
-			<tr>
-				<td class="label-input">First Name: </td>
-				<td><input type="text" name="firstName" value="@Model.FirstName" class="main-input" /></td>
-				<td>@Html.ValidationMessageFor(m => m.FirstName)</td>
-			</tr>
-			<tr>
-				<td class="label-input">Last Name: </td>
-				<td><input type="text" name="lastName" value="@Model.LastName" class="main-input" /></td>
-				<td>@Html.ValidationMessageFor(m => m.LastName)</td>
-			</tr>
-			<tr>
-				<td class="label-input">Email Address: </td>
-				<td><input type="text" name="email" value="@Model.Email" class="main-input" /></td>
-				<td>@Html.ValidationMessageFor(m => m.Email)</td>
-			</tr>
-			<tr>
-				<td class="label-input">Password: </td>
-				<td><input type="password" name="password" id="password" autocomplete="off" value="@Model.Password" class="main-input" /></td>
-				<td><input type="checkbox" onclick="togglePassword()"> Toon wachtwoord</td>
-				<td>@Html.ValidationMessageFor(m => m.Password)</td>
-			</tr>
-			<tr>
-				<td><br /></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><input class="full-input button-input" type="submit" value="Registreer" /></td>
-			</tr>
-		</table>
+		<div class="row">
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<h1>Registreer</h1>
+			</div>
+		</div>
+		<div class="row"></div>
+		<div class="row">
+			<div class="one-third-cell label-container">
+				<label>Voornaam:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="text" name="firstName" value="@Model.FirstName" />
+			</div>
+			<div class="one-third-cell">
+				@Html.ValidationMessageFor(m => m.FirstName)
+			</div>
+		</div>
+		<div class="row">
+			<div class="one-third-cell label-container">
+				<label>Achternaam:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="text" name="lastName" value="@Model.LastName" />
+			</div>
+			<div class="one-third-cell">
+				@Html.ValidationMessageFor(m => m.LastName)
+			</div>
+		</div>
+		<div class="row">
+			<div class="one-third-cell label-container">
+				<label>Emailadres:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="text" name="email" value="@Model.Email" />
+			</div>
+			<div class="one-third-cell">
+				@Html.ValidationMessageFor(m => m.Email)
+			</div>
+		</div>
+		<div class="row">
+			<div class="one-third-cell label-container">
+				<label>Wachtwoord:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="password" name="password" autocomplete="off" value="@Model.Password" />
+			</div>
+			<div class="one-third-cell">
+				@Html.ValidationMessageFor(m => m.Password)
+			</div>
+		</div>
+		<div class="row">
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<input class="full-input button-input" type="submit" value="Registreer" />
+			</div>
+		</div>
 	</form>
 </div>

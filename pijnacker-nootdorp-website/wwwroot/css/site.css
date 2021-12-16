@@ -428,10 +428,10 @@
 	color: black;
 	border-radius: 0.5vw;
 }
-	.full-form h1 {
-		text-align: center;
-		margin: 0;
-	}
+.full-form h1 {
+	text-align: center;
+	margin: 0;
+}
 .full-form .row {
 	display: flex;
 	flex-wrap: wrap;
@@ -471,6 +471,7 @@
 	font-size: 1vw;
 	padding-left: 1vw;
 	padding-right: 1vw;
+	background-color: #eee;
 }
 .full-form input[type=password] {
 	width: calc(100% - 3vw);
@@ -480,6 +481,7 @@
 	font-size: 1vw;
 	padding-left: 1vw;
 	padding-right: 1vw;
+	background-color: #eee;
 }
 .full-form input[type=submit] {
 	height: 100%;
