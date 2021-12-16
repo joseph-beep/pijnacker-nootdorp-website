@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 public class User
 {
@@ -7,10 +6,8 @@ public class User
 
     [Required] public string FirstName { get; set; } = "";
     [Required] public string LastName { get; set; } = "";
-    [EmailAddress] public string Email { get; set; } = "";
-    public string Description { get; set; } = "";
 
-    public int Age { get; set; } = 0;
+    [EmailAddress] public string Email { get; set; } = "";
     [Required] public string Password { get; set; } = "";
 
     public virtual Order Order { get; set; }

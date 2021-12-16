@@ -5,4 +5,60 @@
 }
 
 <h1>Profiel</h1>
-<p>Naam: @Model.FirstName @Model.LastName</p>
+
+<div class="profile">
+	<form method="post">
+		<div class="row">
+			<label>Naam:</label>
+			<input type="text" name="FirstName" value="@Model.FirstName" />
+			<input type="text" name="LastName" value="@Model.LastName" />
+			<input type="submit" value="Opslaan" />
+		</div>
+	</form>
+
+	<hr />
+
+	<form method="post">
+		<div class="row">
+			<h2>Email</h2>
+		</div>
+		<div class="row">
+			<label class="one-fourth-cell">Oude email:</label>
+			<input class="one-half-cell" type="text" name="Email" />
+		</div>
+		<div class="row">
+			<label class="one-fourth-cell">Nieuwe email:</label>
+			<input class="one-half-cell" type="text" name="Email" />
+		</div>
+		<div class="row">
+			<label class="one-fourth-cell">Herhaal nieuwe email:</label>
+			<input class="one-half-cell" type="text" name="Email" />
+		</div>
+		<div class="row">
+			<input class="one-fourth-cell" type="submit" value="Opslaan" />
+		</div>
+	</form>
+
+	<hr />
+
+	<form method="post">
+		<div class="row">
+			<h2>Wachtwoord</h2>
+		</div>
+		<div class="row">
+			<label>Oud wachtwoord:</label>
+			<input type="text" name="Password" />
+		</div>
+		<div class="row">
+			<label>Nieuw wachtwoord:</label>
+			<input type="text" name="Password" />
+		</div>
+		<div class="row">
+			<label>Herhaal nieuw wachtwoord:</label>
+			<input type="text" name="Password" />
+		</div>
+		<div class="row">
+			<input type="submit" value="Opslaan" />
+		</div>
+	</form>
+</div>

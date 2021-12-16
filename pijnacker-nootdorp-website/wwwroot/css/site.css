@@ -393,3 +393,18 @@
 			border-radius: 1vw;
 			margin-bottom: 2vw;
 		}
+
+.profile {
+	display: flex;
+	flex-wrap: wrap;
+}
+.profile .row {
+}
+.profile .row .one-fourth-cell {
+	flex: 0 0 25%;
+	max-width: 25%;
+}
+.profile .row .one-half-cell {
+	flex: 0 0 50%;
+	max-width: 50%;
+}

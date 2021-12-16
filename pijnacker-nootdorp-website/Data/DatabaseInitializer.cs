@@ -40,9 +40,7 @@ public static class DatabaseInitializer
         {
             Id = 0,
             FirstName = "Joseph",
-            LastName = "Thomas",
-            Description = "",
-            Age = 17
+            LastName = "Thomas"
         });
 
         context.SaveChanges();
