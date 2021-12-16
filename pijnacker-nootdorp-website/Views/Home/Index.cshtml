@@ -3,80 +3,6 @@
 @{
 	ViewData["Title"] = "Home Page";
 }
-@*<div class="search-container">
-	<form>
-		<table>
-			<tr>
-				<td>
-					<label for="name">
-						Name
-					</label>
-				</td>
-				<td colspan="2">
-					<input type="text" id="name" />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="name">
-						Name
-					</label>
-				</td>
-				<td>
-					<input type="text" id="name" />
-				</td>
-				<td>
-					<input type="text" id="name" />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="email">
-						Email
-					</label>
-				</td>
-				<td>
-					<input type="text" id="name" />
-				</td>
-				<td>
-					<input type="text" id="name" />
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="telnum">
-						Tel No.
-					</label>
-				</td>
-				<td>
-					<input type="text" id="name" />
-				</td>
-				<td>
-					<input type="text" id="name" />
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>
-					<button onclick="toggleMoreOptions()">Meer opties</button>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="Roll No.">
-						Roll No.
-					</label>
-				</td>
-				<td>
-					<input type="text" id="name" />
-				</td>
-				<td>
-					<input type="text" id="name" />
-				</td>
-			</tr>
-		</table>
-	</form>
-</div>*@
 
 <div class="search-container">
 	<form method="post">
@@ -169,6 +95,9 @@
 		<div class="row">
 			<div class="one-fifth-cell">
 				<button onclick="toggleMoreOptions()" type="button">Meer opties?</button>
+			</div>
+			<div class="one-fifth-cell reset-button-cell">
+				<button type="reset">Reset</button>
 			</div>
 		</div>
 		<div class="more-options">
@@ -300,26 +229,8 @@
 				</div>
 			</div>
 		</div>
-</form>
+	</form>
 </div>
-
-@*<form method="post" class="search-container">
-	<table class="more-options">
-		<tr>
-			<td class="label-input">Toegankelijkheid: </td>
-			<td>
-				<input name="wheelchair" type="checkbox" checked="@Model.Wheelchair">Rolstoel<br />
-				<input name="car" type="checkbox" checked="@Model.Car">Auto<br />
-				<input name="publicTransport" type="checkbox" checked="@Model.PublicTransport">Openbaar vervoer<br />
-			</td>
-		</tr>
-		<tr><td><br /></td></tr>
-		<tr>
-			<td></td>
-			<td><input class="full-input button-input" type="submit" value="Zoek" /></td>
-		</tr>
-	</table>
-</form>*@
 
 @foreach (var house in Model.Houses)
 {
@@ -346,13 +257,6 @@
 				document.getElementsByName("indoorArea_maximum")[0].value = "@Model.IndoorArea_Maximum";
 				document.getElementsByName("buildYear_minimum")[0].value = "@Model.BuildYear_Minimum";
 				document.getElementsByName("buildYear_maximum")[0].value = "@Model.BuildYear_Maximum";
-			}
-
-			if ("@Website.IsMoreOptions" == "True") {
-				setActiveMoreOptions(true);
-			}
-			else {
-				setActiveMoreOptions(false);
 			}
 		}
 
@@ -384,11 +288,6 @@
 			option.style.pointerEvents = "none";
 			option.style.userSelect = "none";
 			option.style.setProperty("padding-bottom", "0", "important");
-
-			@{
-				Website.IsMoreOptions = false;
-				System.Diagnostics.Debug.WriteLine($"FALSE: {Website.IsMoreOptions}");
-			}
 		}
 
 		function openMoreOptions(option) {
@@ -397,11 +296,6 @@
 			option.style.pointerEvents = "auto";
 			option.style.userSelect = "auto";
 			option.style.setProperty("padding-bottom", "2vw", "important");
-
-			@{
-				Website.IsMoreOptions = true;
-				System.Diagnostics.Debug.WriteLine($"TRUE: {Website.IsMoreOptions}");
-			}
 		}
 	</script>
 }

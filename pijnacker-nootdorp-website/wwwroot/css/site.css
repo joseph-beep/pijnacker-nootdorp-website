@@ -207,11 +207,21 @@
 	}
 	.search-container input[type=checkbox] {
 	}
+.search-container .reset-button-cell {
+	text-align: right;
+	flex: 0 0 18.5%;
+	max-width: 18.5%;
+}
 	.search-container button[type=button] {
 		background-color: transparent;
 		border: none;
 		color: white;
 	}
+.search-container button[type=reset] {
+	background-color: transparent;
+	border: none;
+	color: white;
+}
 	.search-container .checkbox-label {
 		user-select: none;
 	}

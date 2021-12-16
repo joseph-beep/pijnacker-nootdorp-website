@@ -290,8 +290,6 @@ namespace pijnacker_nootdorp_website.Controllers
 
             string[] searchQueryKeywords = GetKeywords(search.SearchQuery);
 
-            Debug.WriteLine($"MORE: {Website.IsMoreOptions}");
-
             List<House> houses = new List<House>();
             Dictionary<House, int> matches = new Dictionary<House, int>();
             foreach (var house in _context.Houses)
@@ -299,31 +297,28 @@ namespace pijnacker_nootdorp_website.Controllers
                 if (price_minimum == null || house.Price < price_minimum) continue;
                 else if (house.Price > price_maximum) continue;
 
-                if (Website.IsMoreOptions)
+                if (outdoorArea_minimum == null || house.OutdoorArea < outdoorArea_minimum) continue;
+                else if (house.OutdoorArea > outdoorArea_maximum) continue;
+
+                if (indoorArea_minimum == null || house.IndoorArea < indoorArea_minimum) continue;
+                else if (house.IndoorArea > indoorArea_maximum) continue;
+
+                if (buildYear_minimum == null || house.BuildYear < buildYear_minimum) continue;
+                else if (house.BuildYear > buildYear_maximum) continue;
+
+                bool filter = true;
+                if (!wheelchair && !car && !publicTransport)
                 {
-                    if (outdoorArea_minimum == null || house.OutdoorArea < outdoorArea_minimum) continue;
-                    else if (house.OutdoorArea > outdoorArea_maximum) continue;
-
-                    if (indoorArea_minimum == null || house.IndoorArea < indoorArea_minimum) continue;
-                    else if (house.IndoorArea > indoorArea_maximum) continue;
-
-                    if (buildYear_minimum == null || house.BuildYear < buildYear_minimum) continue;
-                    else if (house.BuildYear > buildYear_maximum) continue;
-
-                    bool filter = true;
-                    if (!wheelchair && !car && !publicTransport)
-                    {
-                        filter = false;
-                    }
-                    else
-                    {
-                        if (wheelchair && house.AccessData.wheelchair) filter = false;
-                        else if (car && house.AccessData.car) filter = false;
-                        else if (publicTransport && house.AccessData.publicTransport) filter = false;
-                    }
-
-                    if (filter) continue;
+                    filter = false;
                 }
+                else
+                {
+                    if (wheelchair && house.AccessData.wheelchair) filter = false;
+                    else if (car && house.AccessData.car) filter = false;
+                    else if (publicTransport && house.AccessData.publicTransport) filter = false;
+                }
+
+                if (filter) continue;
 
                 int matchCount = searchQueryKeywords == null ? 999 : CountMatches(GetKeywords(house.Address), searchQueryKeywords);
 
