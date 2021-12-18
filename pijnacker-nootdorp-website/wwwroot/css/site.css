@@ -493,6 +493,21 @@
 	color: white;
 	width: calc(100% - 1vw);
 }
+	.full-form textarea {
+		resize: none;
+		width: calc(100% - 3vw);
+		height: 20vw;
+		font-size: 1vw;
+		border: none;
+		background-color: #eee;
+		border-radius: 0.5vw;
+		padding: 1vw;
+		font-family: 'Ubuntu';
+	}
+
+	.full-form .text-area-row {
+		height: 22vw;
+	}
 
 .cart {
 	display: block;
@@ -656,3 +671,4 @@
 	padding-left: 4vw;
 	margin-bottom: 0;
 }
+

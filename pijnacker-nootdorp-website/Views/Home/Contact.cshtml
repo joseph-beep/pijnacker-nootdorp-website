@@ -4,10 +4,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1>Contact</h1>
-<p>Email: 110737@st-maartenscollege.nl</p>
-<p>Telefoonnummer: +31 6 16238992</p>
-
 <div class="full-form">
 	<form method="post">
 		<div class="row">
@@ -39,12 +35,12 @@
 				@Html.ValidationMessageFor(m => m.Name)
 			</div>
 		</div>
-		<div class="row">
+		<div class="row text-area-row">
 			<div class="one-third-cell label-container">
 				<label>Bericht:</label>
 			</div>
 			<div class="one-third-cell">
-				<input type="text" name="message" value="@Model.Message" />
+				<textarea type="text" name="message" value="@Model.Message"></textarea>
 			</div>
 			<div class="one-third-cell">
 				@Html.ValidationMessageFor(m => m.Message)
