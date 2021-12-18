@@ -506,7 +506,10 @@
 	}
 
 	.full-form .text-area-row {
-		height: 22vw;
+		height: 23vw;
+	}
+	.full-form .centered-title {
+		margin-right: 1.125vw;
 	}
 
 .cart {
