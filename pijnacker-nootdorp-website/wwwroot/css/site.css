@@ -250,7 +250,11 @@
 		flex: 0 0 80%;
 		max-width: 80%;
 		text-align: center;
+		display: none;
 	}
+		.details-container .first-slide {
+			display: block;
+		}
 	.details-container .slide-button {
 		flex: 0 0 10%;
 		max-width: 10%;
