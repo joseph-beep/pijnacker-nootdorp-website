@@ -27,7 +27,9 @@ public class House
     public float IndoorArea { get; set; }
 
     public string Rooms { get; set; }
-    public string Picture { get; set; }
+    public string Thumbnail { get; set; }
+
+    public virtual ICollection<HouseSlide> HouseSlides { get; set; }
 
     public DateTime? OpenHouseStart { get; set; }
     public DateTime? OpenHouseEnd { get; set; }

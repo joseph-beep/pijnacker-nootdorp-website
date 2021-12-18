@@ -7,17 +7,26 @@
 <div class="details-container">
 	<div class="slideshow">
 		<button type="button" onclick="leftSlide()" class="slide-button"> <img src="~/assets/arrow.png" /> </button>
-		<div class="slide first-slide">
-			<img src="@Model.Picture" />
-			<h2>Titel1</h2>
-		</div>
+		@foreach (var slide in Model.HouseSlides)
+		{
+			if (slide.Id == Model.HouseSlides.First().Id)
+			{
+				<div class="slide first-slide">
+					<img src="@slide.Picture" />
+					<h2>@slide.Subtitle</h2>
+				</div>
+			}
+			else
+			{
+				<div class="slide">
+					<img src="@slide.Picture" />
+					<h2>@slide.Subtitle</h2>
+				</div>
+			}
+		}
 		<div class="slide">
-			<img src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg" />
-			<h2>Titel2</h2>
-		</div>
-		<div class="slide">
-			<img src="https://cdn.vox-cdn.com/thumbor/6itLJS9BZ-B5gXPjM1AB_z-ZKVI=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/65890203/iStock_1067331614.7.jpg" />
-			<h2>Titel3</h2>
+			<img src="@Model.Thumbnail" />
+			<h2>@Model.Address</h2>
 		</div>
 		<button type="button" onclick="rightSlide()" class="slide-button"> <img src="~/assets/right-arrow.png" /> </button>
 	</div>

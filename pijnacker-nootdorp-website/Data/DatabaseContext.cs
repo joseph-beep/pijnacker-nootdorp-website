@@ -7,6 +7,7 @@ public class DatabaseContext : DbContext
     {
     }
 
+    public DbSet<HouseSlide> HouseSlides { get; set; }
     public DbSet<House> Houses { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
@@ -15,6 +16,7 @@ public class DatabaseContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<HouseSlide>().ToTable("house-slides");
         modelBuilder.Entity<House>().ToTable("houses");
         modelBuilder.Entity<Order>().ToTable("orders");
         modelBuilder.Entity<OrderItem>().ToTable("order-items");
