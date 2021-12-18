@@ -1,4 +1,7 @@
-﻿public static class TextUtilities
+﻿using System;
+using static HouseLayout;
+
+public static class TextUtilities
 {
     public static string BeautifyNumber(int number)
     {
@@ -14,30 +17,33 @@
         return value == "on" ? true : false;
     }
 
-    public static string TranslateRoomType(string roomType, bool plural)
+    public static string TranslateRoomType(RoomType roomType, bool plural)
     {
         switch (roomType)
         {
-            case "BEDROOM":
+            case RoomType.BEDROOM:
                 return plural ? "Slaapkamers" : "Slaapkamer";
 
-            case "LIVING_ROOM":
+            case RoomType.LIVING_ROOM:
                 return plural ? "Woonkamers" : "Woonkamer";
 
-            case "KITCHEN":
+            case RoomType.KITCHEN:
                 return plural ? "Keukens" : "Keuken";
 
-            case "BATHROOM":
+            case RoomType.BATHROOM:
                 return plural ? "Badkamers" : "Badkamer";
 
-            case "TOILET":
+            case RoomType.TOILET:
                 return plural ? "Toilets" : "Toilets";
 
-            case "WORKSPACE":
+            case RoomType.WORKSPACE:
                 return plural ? "Werkkamers" : "Werkkamer";
+
+            case RoomType.DINING_ROOM:
+                return plural ? "Eetkamers" : "Eetkamer";
         }
 
-        return roomType;
+        return roomType.ToString();
     }
 
     public static string TranslateStorey(int storey)

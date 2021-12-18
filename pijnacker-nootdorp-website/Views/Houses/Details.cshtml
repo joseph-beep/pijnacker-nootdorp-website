@@ -83,12 +83,12 @@
 					{
 						@if (i == storey.rooms.Length - 1)
 						{
-							<dt class="bottom">@TextUtilities.TranslateRoomType(storey.rooms[i].type.ToString(), true)</dt>
+							<dt class="bottom">@TextUtilities.TranslateRoomType(storey.rooms[i].type, true)</dt>
 							<dd class="bottom">@storey.rooms[i].amount</dd>
 						}
 						else
 						{
-							<dt>@TextUtilities.TranslateRoomType(storey.rooms[i].type.ToString(), true)</dt>
+							<dt>@TextUtilities.TranslateRoomType(storey.rooms[i].type, true)</dt>
 							<dd>@storey.rooms[i].amount</dd>
 						}
 					}
@@ -104,9 +104,16 @@
 				<dt>Email verkoper</dt>
 				<dd>tim_logtenberg@google.com</dd>
 				<dt>Open dag</dt>
-				<dd>Van @Model.OpenHouseStart.Value.ToShortDateString() @Model.OpenHouseStart.Value.ToShortTimeString()</dd>
-				<dt></dt>
-				<dd>Tot @Model.OpenHouseEnd.Value.ToShortDateString() @Model.OpenHouseEnd.Value.ToShortTimeString()</dd>
+				@if (Model.OpenHouseStart != null)
+				{
+					<dd>Van @Model.OpenHouseStart.Value.ToShortDateString() @Model.OpenHouseStart.Value.ToShortTimeString()</dd>
+					<dt></dt>
+					<dd>Tot @Model.OpenHouseEnd.Value.ToShortDateString() @Model.OpenHouseEnd.Value.ToShortTimeString()</dd>
+				}
+				else
+				{
+					<dd>Niet gepland</dd>
+				}
 				<dt>Verkoper</dt>
 				<dd>Tim Logtenberg</dd>
 				<dt class="bottom">Kantoor van verkoper</dt>
@@ -114,14 +121,17 @@
 			</dl>
 		</div>
 
-		<div class="app">
-			<h2>Tip</h2>
-			<p>Voeg open dag aan uw Google Calendar toe:</p>
-			<a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Open+Dag+@Model.Address&location=@Model.Address&dates=@TimeData.ConvertToGoogleCalendarFormat(Model.OpenHouseStartData, Model.OpenHouseEndData)" target="_blank"><img src="~/assets/calendar.png" /></a>
-		</div>
+		@if (Model.OpenHouseStart != null)
+		{
+			<div class="app">
+				<h2>Tip</h2>
+				<p>Voeg open dag aan uw Google Calendar toe:</p>
+				<a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Open+Dag+@Model.Address&location=@Model.Address&dates=@TimeData.ConvertToGoogleCalendarFormat(Model.OpenHouseStartData, Model.OpenHouseEndData)" target="_blank"><img src="~/assets/calendar.png" /></a>
+			</div>
+		}
 
 		<iframe class="map" src="https://maps.google.com/maps?q=@Model.Address&t=k&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-	</div>
+		</div>
 	
 	<div class="highlight-container">
 		<h1 class="address">@Model.Address</h1>

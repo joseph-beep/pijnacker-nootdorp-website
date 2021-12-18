@@ -1,6 +1,6 @@
 ﻿public class HouseLayout
 {
-    public enum RoomType { BEDROOM, BATHROOM, LIVING_ROOM, KITCHEN }
+    public enum RoomType { BEDROOM, BATHROOM, LIVING_ROOM, KITCHEN, TOILET, WORKSPACE, DINING_ROOM }
 
     public class Room
     {
