@@ -4,23 +4,15 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1 class="display-4">CONTACT</h1>
-<h1>Login</h1>
+<h1>Contact</h1>
+<p>Email: 110737@st-maartenscollege.nl</p>
+<p>Telefoonnummer: +31 6 16238992</p>
 <form method="post">
-    first name: <input type="text" name="firstName" />
-    @Html.ValidationMessageFor(m => m.FirstName)<br/>
-    Last Name: <input type="text" name="lastName" />
-    @Html.ValidationMessageFor(m => m.LastName)<br />
-    Email Address: <input type="text" name="email" />
-    @Html.ValidationMessageFor(m => m.Email)<br />
-    <input type="submit" />
+	Naam: <input type="text" name="name" />
+	@Html.ValidationMessageFor(m => m.FirstName)<br />
+	Emailadres: <input type="text" name="email" />
+	@Html.ValidationMessageFor(m => m.Email)<br />
+	Bericht: <input type="text" name="message" />
+	@Html.ValidationMessageFor(m => m.Email)<br />
+	<input type="submit" value="Verstuur" />
 </form>
-<p>FirstName:
-@if (Model != null)
-{
-    <p>Welcome @Model.FirstName @Model.LastName!</p>
-}
-else
-{
-    <p>No input</p>
-}
