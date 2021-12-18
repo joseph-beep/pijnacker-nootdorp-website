@@ -160,26 +160,8 @@ namespace pijnacker_nootdorp_website.Controllers
         [Route("cart")]
         public IActionResult Cart()
         {
-            User user = null;
-            if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
-            {
-                string userId = Encoding.ASCII.GetString(userId_raw);
-
-                user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
-            }
-
-            Order order = _context.Orders.FirstOrDefault(x => x.User.Id == user.Id);
-            if (order == null)
-            {
-                order = new Order
-                {
-                    UserId = user.Id,
-                    User = user
-                };
-
-                _context.Orders.Add(order);
-                _context.SaveChanges();
-            }
+            User user = Website.User;
+            Order order = _context.Orders.FirstOrDefault(u => u.UserId == user.Id);
 
             return View(new CartModel
             {
@@ -191,21 +173,8 @@ namespace pijnacker_nootdorp_website.Controllers
         [Route("cart/pay")]
         public IActionResult Pay()
         {
-            return View();
-        }
-
-        [Route("cart/pay/done")]
-        public IActionResult FinishPay()
-        {
-            User user = null;
-            if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
-            {
-                string userId = Encoding.ASCII.GetString(userId_raw);
-
-                user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
-            }
-
-            _context.Orders.Remove(user.Order);
+            _context.Orders.Remove(_context.Orders.FirstOrDefault(u => Website.User.Id == u.UserId));
+            _context.Orders.Add(new Order { UserId = Website.User.Id });
             _context.SaveChanges();
 
             return Redirect("/");

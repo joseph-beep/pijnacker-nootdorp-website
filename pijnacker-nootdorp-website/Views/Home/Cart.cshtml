@@ -4,26 +4,67 @@
 	ViewData["Title"] = "Home Page";
 }
 
-<h1 class="display-4">Shopping Cart</h1>
-@{
-	@if (Model.Order.OrderItems != null)
-	{
-		<p>@Model.Order.User.FirstName</p>
+<h1 class="header-title">@Model.User.FirstName's Cart</h1>
 
+<div class="cart">
+	<div class="row pay-button-row">
+		<div class="three-fourth-cell">
+			<a href="/" class="continue-shopping-button">Ga verder met shoppen!</a>
+		</div>
+		<div class="one-fourth-cell">
+			<a href="/cart/pay" class="pay-button">Betaal</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="three-fourth-cell">
+			<label class="title">Description</label>
+		</div>
+		<div class="one-fourth-cell">
+			<label class="title">Price</label>
+		</div>
+	</div>
+	<hr />
+	@{
 		int total = 0;
 
-		@foreach (var item in Model.Order.OrderItems)
+		@if (Model.Order.OrderItems != null)
 		{
-			<p>@item.House.Address - - - @item.House.Price</p>
+			@foreach (var item in Model.Order.OrderItems)
+			{
+				<div class="row">
+					<div class="three-fourth-cell house-description">
+						<a href="/houses/@item.House.Id">
+							<img src="@item.House.Picture" />
+							<h1>@item.House.Address</h1>
+							<h2>@item.House.IndoorArea m² <img src="~/assets/floor.png" class="icon" /> · @item.House.OutdoorArea m² <img src="~/assets/tree.png" class="icon" /> · @item.House.Layout.storeys.Length.ToString() etages · @item.House.BuildYear</h2>
+						</a>
+					</div>
+					<div class="one-fourth-cell">
+						<label>€@TextUtilities.BeautifyNumber(item.House.Price)</label>
+					</div>
+				</div>
 
-			total += item.House.Price;
+				total += item.House.Price;
+			}
 		}
-
-		<p>Total: @total</p>
+		else
+		{
+			<label>ITEMS NOT FOUND</label>
+		}
+		<hr />
+		<div class="row total">
+			<div class="three-fourth-cell right">
+				<label>Totaal:</label>
+			</div>
+			<div class="one-fourth-cell">
+				<label class="title">€@TextUtilities.BeautifyNumber(total)</label>
+			</div>
+		</div>
 	}
-	else
-	{
-		<p>ITEMS NOT FOUND</p>
-	}
-}
-<a href="/cart/pay">Betaal</a>
+	<div class="row pay-button-row">
+		<div class="three-fourth-cell"></div>
+		<div class="one-fourth-cell">
+			<a href="/cart/pay" class="pay-button">Betaal</a>
+		</div>
+	</div>
+</div>

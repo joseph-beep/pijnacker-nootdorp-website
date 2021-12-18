@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,13 +32,14 @@ namespace pijnacker_nootdorp_website
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 21));
 
             // Replace 'YourDbContext' with the name of your own DbContext derived class.
-            services.AddDbContext<DatabaseContext>(
-                dbContextOptions => dbContextOptions
+            services.AddDbContext<DatabaseContext>(dbContextOptions => dbContextOptions
                     .UseLazyLoadingProxies()
                     .UseMySql(connectionString, serverVersion)
                     .EnableSensitiveDataLogging() // <-- These two calls are optional but help
                     .EnableDetailedErrors()       // <-- with debugging (remove for production).
-            );
+                    .ConfigureWarnings(warnings => warnings.Default(WarningBehavior.Ignore).Ignore(CoreEventId.LazyLoadOnDisposedContextWarning)));
+            //.ConfigureWarnings(warnings => warnings.Default(WarningBehavior.Ignore)
+            //            .Throw(CoreEventId.LazyLoadOnDisposedContextWarning)));
 
             services.AddSession(options =>
             {
