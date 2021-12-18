@@ -487,6 +487,16 @@
 	padding-right: 1vw;
 	background-color: #eee;
 }
+	.full-form input[type=email] {
+		width: calc(100% - 3vw);
+		height: 100%;
+		border: none;
+		border-radius: 0.5vw;
+		font-size: 1vw;
+		padding-left: 1vw;
+		padding-right: 1vw;
+		background-color: #eee;
+	}
 .full-form input[type=submit] {
 	height: 100%;
 	border: none;
