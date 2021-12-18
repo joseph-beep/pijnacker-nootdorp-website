@@ -151,12 +151,22 @@ namespace pijnacker_nootdorp_website.Controllers
         [Route("profile")]
         public IActionResult Profile()
         {
+            if (Website.User == null)
+            {
+                return Redirect("/login-error");
+            }
+
             return View(Website.User);
         }
 
         [Route("cart")]
         public IActionResult Cart()
         {
+            if (Website.User == null)
+            {
+                return Redirect("/login-error");
+            }
+
             User user = Website.User;
             Order order = _context.Orders.FirstOrDefault(u => u.UserId == user.Id);
 
@@ -180,22 +190,27 @@ namespace pijnacker_nootdorp_website.Controllers
         [Route("cart/add/{houseId}")]
         public IActionResult AddCart(int houseId)
         {
-            User user = null;
-            if (HttpContext.Session.TryGetValue("user", out byte[] userId_raw))
+            if (Website.User == null)
             {
-                string userId = Encoding.ASCII.GetString(userId_raw);
-
-                user = _context.Users.FirstOrDefault(u => u.Id == int.Parse(userId));
+                return Redirect("/login-error");
             }
-
-            user.Order.OrderItems.Add(new OrderItem
+            else
             {
-                HouseId = houseId,
-                OrderId = user.Order.Id
-            });
-            _context.SaveChanges();
+                Website.User.Order.OrderItems.Add(new OrderItem
+                {
+                    HouseId = houseId,
+                    OrderId = Website.User.Order.Id
+                });
+                _context.SaveChanges();
 
-            return Redirect($"/houses/{houseId}");
+                return Redirect($"/houses/{houseId}");
+            }
+        }
+
+        [Route("login-error")]
+        public IActionResult LoginError(string message)
+        {
+            return View(message);
         }
 
         #region Register
