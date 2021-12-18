@@ -20,7 +20,7 @@
 			<div class="one-third-cell">
 				<input type="email" name="email" value="@Model.Email" />
 			</div>
-			<div class="one-third-cell">
+			<div class="one-third-cell red">
 				@Html.ValidationMessageFor(m => m.Email)
 			</div>
 		</div>
@@ -31,7 +31,7 @@
 			<div class="one-third-cell">
 				<input type="text" name="name" value="@Model.Name" />
 			</div>
-			<div class="one-third-cell">
+			<div class="one-third-cell red">
 				@Html.ValidationMessageFor(m => m.Name)
 			</div>
 		</div>
@@ -42,7 +42,7 @@
 			<div class="one-third-cell">
 				<textarea type="text" name="message" value="@Model.Message"></textarea>
 			</div>
-			<div class="one-third-cell">
+			<div class="one-third-cell red">
 				@Html.ValidationMessageFor(m => m.Message)
 			</div>
 		</div>

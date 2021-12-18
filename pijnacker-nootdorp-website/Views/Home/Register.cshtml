@@ -20,7 +20,7 @@
 			<div class="one-third-cell">
 				<input type="text" name="firstName" value="@Model.FirstName" />
 			</div>
-			<div class="one-third-cell">
+			<div class="one-third-cell red">
 				@Html.ValidationMessageFor(m => m.FirstName)
 			</div>
 		</div>
@@ -31,7 +31,7 @@
 			<div class="one-third-cell">
 				<input type="text" name="lastName" value="@Model.LastName" />
 			</div>
-			<div class="one-third-cell">
+			<div class="one-third-cell red">
 				@Html.ValidationMessageFor(m => m.LastName)
 			</div>
 		</div>
@@ -42,7 +42,7 @@
 			<div class="one-third-cell">
 				<input type="email" name="email" value="@Model.Email" />
 			</div>
-			<div class="one-third-cell">
+			<div class="one-third-cell red">
 				@Html.ValidationMessageFor(m => m.Email)
 			</div>
 		</div>
@@ -53,7 +53,7 @@
 			<div class="one-third-cell">
 				<input type="password" name="password" autocomplete="off" value="@Model.Password" />
 			</div>
-			<div class="one-third-cell">
+			<div class="one-third-cell red">
 				@Html.ValidationMessageFor(m => m.Password)
 			</div>
 		</div>

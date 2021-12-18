@@ -91,6 +91,10 @@
 		padding-bottom: 0.5vw;
 	}
 
+.red {
+	color: var(--red) !important;
+}
+
 	.search-container {
 		display: block;
 		padding-top: 8vw;
