@@ -130,7 +130,7 @@ namespace pijnacker_nootdorp_website.Controllers
         [Route("contact")]
         public IActionResult Contact()
         {
-            return View();
+            return View(new Contact { });
         }
 
         [Route("contact")]

@@ -1,4 +1,4 @@
-﻿@model User
+﻿@model Contact
 
 @{
     ViewData["Title"] = "Home Page";
@@ -7,12 +7,54 @@
 <h1>Contact</h1>
 <p>Email: 110737@st-maartenscollege.nl</p>
 <p>Telefoonnummer: +31 6 16238992</p>
-<form method="post">
-	Naam: <input type="text" name="name" />
-	@Html.ValidationMessageFor(m => m.FirstName)<br />
-	Emailadres: <input type="text" name="email" />
-	@Html.ValidationMessageFor(m => m.Email)<br />
-	Bericht: <input type="text" name="message" />
-	@Html.ValidationMessageFor(m => m.Email)<br />
-	<input type="submit" value="Verstuur" />
-</form>
+
+<div class="full-form">
+	<form method="post">
+		<div class="row">
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<h1>Contact</h1>
+			</div>
+		</div>
+		<div class="row"></div>
+		<div class="row">
+			<div class="one-third-cell label-container">
+				<label>Emailadres:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="text" name="email" value="@Model.Email" />
+			</div>
+			<div class="one-third-cell">
+				@Html.ValidationMessageFor(m => m.Email)
+			</div>
+		</div>
+		<div class="row">
+			<div class="one-third-cell label-container">
+				<label>Naam:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="text" name="name" value="@Model.Name" />
+			</div>
+			<div class="one-third-cell">
+				@Html.ValidationMessageFor(m => m.Name)
+			</div>
+		</div>
+		<div class="row">
+			<div class="one-third-cell label-container">
+				<label>Bericht:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="text" name="message" value="@Model.Message" />
+			</div>
+			<div class="one-third-cell">
+				@Html.ValidationMessageFor(m => m.Message)
+			</div>
+		</div>
+		<div class="row">
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<input class="full-input button-input" type="submit" value="Verstuur" />
+			</div>
+		</div>
+	</form>
+</div>
