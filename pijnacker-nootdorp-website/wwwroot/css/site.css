@@ -670,7 +670,6 @@ footer {
 		flex: 0 0 100%;
 		max-width: 100%;
 		height: 1cm;
-		/* padding-top: 0.3cm; */
 	}
 
 	.full-form .label-container {
@@ -680,7 +679,28 @@ footer {
 
 	.full-form .row {
 		padding-top: 1cm;
-		height: 1.5cm
+		height: 1.5cm;
+		width: 100%;
+	}
+
+	.full-form input[type=text] {
+		width: calc(100% - 1.5cm);
+	}
+
+	.full-form input[type=email] {
+		width: calc(100% - 1.5cm);
+	}
+
+	.full-form input[type=password] {
+		width: calc(100% - 1.5cm);
+	}
+
+	.full-form input[type=submit] {
+		width: calc(100% - 0.5cm);
+	}
+
+	.full-form textarea {
+		width: calc(100% - 1.5cm);
 	}
 }
 
