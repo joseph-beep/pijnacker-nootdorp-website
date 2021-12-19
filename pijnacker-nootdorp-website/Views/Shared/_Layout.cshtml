@@ -10,7 +10,7 @@
 <body>
 
 	<div class="navigation">
-		<img src="~/assets/icon.png" />
+		<a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/assets/icon.png" /></a>
 		<a asp-area="" asp-controller="Home" asp-action="Index" class="title">Huizen in Pijnacker-Nootdorp</a>
 		<a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
 		@if (Website.User != null)
