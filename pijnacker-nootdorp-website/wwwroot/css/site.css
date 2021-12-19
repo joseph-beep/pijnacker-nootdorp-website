@@ -451,13 +451,13 @@ footer {
 
 .details-container .specifications {
 	background-color: #eee;
-	padding: 2cm;
+	padding: 1cm;
 	border-radius: 0.2cm;
 	margin-bottom: 2cm;
 }
 
 .details-container .description {
-	padding: 2cm;
+	padding: 1cm;
 	border-radius: 0.2cm;
 }
 
@@ -467,19 +467,19 @@ footer {
 
 .details-container .main h2 {
 	margin: 0;
-	font-size: 1.25cm;
+	font-size: 0.75cm;
 	font-weight: bold;
-	margin-bottom: 1cm;
+	margin-bottom: 0.25cm;
 }
 
 .details-container .main h3 {
-	font-size: 1cm;
+	font-size: 0.5cm;
 	font-weight: bold;
 }
 
 .details-container .main .specifications h3 {
 	margin-bottom: 0.25cm;
-	margin-top: 1.5cm;
+	margin-top: 1cm;
 }
 
 .details-container .main {
@@ -488,7 +488,7 @@ footer {
 }
 
 .details-container h2.middle {
-	margin-top: 5cm;
+	margin-top: 2cm;
 }
 
 .details-container dl {
@@ -528,27 +528,27 @@ footer {
 
 .details-container .map {
 	width: 100%;
-	height: 30cm;
+	height: 15cm;
 	margin-bottom: 2cm;
 	-webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
 	box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
 }
 
 .details-container .contact {
-	padding: 2cm;
+	padding: 1cm;
 	margin-bottom: 2cm;
 }
 
 .details-container a img {
-	height: 3cm;
-	width: 3cm;
+	height: 2cm;
+	width: 2cm;
 	border-radius: 0;
 	margin: 0;
 }
 
 .details-container .app {
 	background-color: #eee;
-	padding: 2cm;
+	padding: 1cm;
 	border-radius: 0.2cm;
 	margin-bottom: 2cm;
 }
