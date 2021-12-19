@@ -658,6 +658,32 @@ footer {
 		height: 3cm;
 	}
 
+@media (max-width: 1600px) {
+	.full-form {
+		padding-left: 0cm;
+		padding-right: 0cm;
+	}
+}
+
+@media (max-width: 1275px) {
+	.full-form .one-third-cell {
+		flex: 0 0 100%;
+		max-width: 100%;
+		height: 1cm;
+		/* padding-top: 0.3cm; */
+	}
+
+	.full-form .label-container {
+		justify-content: left;
+		align-items: end;
+	}
+
+	.full-form .row {
+		padding-top: 1cm;
+		height: 1.5cm
+	}
+}
+
 .cart {
 	display: block;
 	padding-top: 1cm;
