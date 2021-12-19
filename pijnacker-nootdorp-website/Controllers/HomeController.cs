@@ -328,18 +328,18 @@ namespace pijnacker_nootdorp_website.Controllers
             int? price_minimum = int.TryParse(search.Price_Minimum, out int data1) ? data1 : null;
             int? price_maximum = int.TryParse(search.Price_Maximum, out int data2) ? data2 : null;
 
-            int? outdoorArea_minimum = int.TryParse(search.OutdoorArea_Minimum, out int data3) ? data3 : null;
-            int? outdoorArea_maximum = int.TryParse(search.OutdoorArea_Maximum, out int data4) ? data4 : null;
+            //int? outdoorArea_minimum = int.TryParse(search.OutdoorArea_Minimum, out int data3) ? data3 : null;
+            //int? outdoorArea_maximum = int.TryParse(search.OutdoorArea_Maximum, out int data4) ? data4 : null;
 
-            int? indoorArea_minimum = int.TryParse(search.IndoorArea_Minimum, out int data5) ? data5 : null;
-            int? indoorArea_maximum = int.TryParse(search.IndoorArea_Maximum, out int data6) ? data6 : null;
+            //int? indoorArea_minimum = int.TryParse(search.IndoorArea_Minimum, out int data5) ? data5 : null;
+            //int? indoorArea_maximum = int.TryParse(search.IndoorArea_Maximum, out int data6) ? data6 : null;
 
-            int? buildYear_minimum = int.TryParse(search.BuildYear_Minimum, out int data7) ? data7 : null;
-            int? buildYear_maximum = int.TryParse(search.BuildYear_Maximum, out int data8) ? data8 : null;
+            //int? buildYear_minimum = int.TryParse(search.BuildYear_Minimum, out int data7) ? data7 : null;
+            //int? buildYear_maximum = int.TryParse(search.BuildYear_Maximum, out int data8) ? data8 : null;
 
-            bool wheelchair = search.Wheelchair == "on";
-            bool car = search.Car == "on";
-            bool publicTransport = search.PublicTransport == "on";
+            //bool wheelchair = search.Wheelchair == "on";
+            //bool car = search.Car == "on";
+            //bool publicTransport = search.PublicTransport == "on";
 
             string[] searchQueryKeywords = GetKeywords(search.SearchQuery);
 
@@ -350,28 +350,28 @@ namespace pijnacker_nootdorp_website.Controllers
                 if (price_minimum == null || house.Price < price_minimum) continue;
                 else if (house.Price > price_maximum) continue;
 
-                if (outdoorArea_minimum == null || house.OutdoorArea < outdoorArea_minimum) continue;
-                else if (house.OutdoorArea > outdoorArea_maximum) continue;
+                //if (outdoorArea_minimum == null || house.OutdoorArea < outdoorArea_minimum) continue;
+                //else if (house.OutdoorArea > outdoorArea_maximum) continue;
 
-                if (indoorArea_minimum == null || house.IndoorArea < indoorArea_minimum) continue;
-                else if (house.IndoorArea > indoorArea_maximum) continue;
+                //if (indoorArea_minimum == null || house.IndoorArea < indoorArea_minimum) continue;
+                //else if (house.IndoorArea > indoorArea_maximum) continue;
 
-                if (buildYear_minimum == null || house.BuildYear < buildYear_minimum) continue;
-                else if (house.BuildYear > buildYear_maximum) continue;
+                //if (buildYear_minimum == null || house.BuildYear < buildYear_minimum) continue;
+                //else if (house.BuildYear > buildYear_maximum) continue;
 
-                bool filter = true;
-                if (!wheelchair && !car && !publicTransport)
-                {
-                    filter = false;
-                }
-                else
-                {
-                    if (wheelchair && house.AccessData.wheelchair) filter = false;
-                    else if (car && house.AccessData.car) filter = false;
-                    else if (publicTransport && house.AccessData.publicTransport) filter = false;
-                }
+                //bool filter = true;
+                //if (!wheelchair && !car && !publicTransport)
+                //{
+                //    filter = false;
+                //}
+                //else
+                //{
+                //    if (wheelchair && house.AccessData.wheelchair) filter = false;
+                //    else if (car && house.AccessData.car) filter = false;
+                //    else if (publicTransport && house.AccessData.publicTransport) filter = false;
+                //}
 
-                if (filter) continue;
+                //if (filter) continue;
 
                 int matchCount = searchQueryKeywords == null ? 999 : CountMatches(GetKeywords(house.Address), searchQueryKeywords);
 
