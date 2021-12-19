@@ -785,6 +785,11 @@ footer {
 	.full-form .textarea-validation {
 		padding-top: 5cm;
 	}
+
+	.full-form .empty-row {
+		height: 0;
+		padding: 0;
+	}
 }
 
 .cart {
@@ -908,13 +913,13 @@ footer {
 		}
 
 		.cart .house-description h1 {
-			font-size: 2.5cm;
+			font-size: 0.75cm;
 			font-weight: 100;
 			margin-bottom: 0;
 		}
 
 		.cart .house-description h2 {
-			font-size: 1.5cm;
+			font-size: 0.5cm;
 			font-weight: 100;
 			margin-top: 0;
 			margin-bottom: 0.5cm;
@@ -926,8 +931,8 @@ footer {
 		}
 
 		.cart .house-description .icon {
-			height: 1cm;
-			width: 1cm;
+			height: 0.5cm;
+			width: 0.5cm;
 			float: none;
 			margin: 0;
 			-webkit-box-shadow: none;
@@ -976,4 +981,58 @@ footer {
 	padding-top: 3cm;
 	padding-left: 4cm;
 	margin-bottom: 0;
+}
+
+
+@media (max-width: 1250px) {
+	.cart .three-fourth-cell {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+
+	.cart .house-description img {
+		width: calc(100vw - 18.5cm);
+		height: calc((100vw - 18.5cm) / 16 * 9);
+	}
+
+	.cart .right {
+		text-align: left;
+	}
+
+	.cart .title {
+		display: none;
+	}
+
+	.cart .continue-shopping-button {
+		display: none;
+	}
+}
+
+@media (max-width: 1100px) {
+	.cart {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+		.cart .house-description img {
+			width: calc(100vw - 10.5cm);
+			height: calc((100vw - 10.5cm) / 16 * 9);
+		}
+
+	.header-title {
+		padding-left: 0;
+	}
+}
+
+@media (max-width: 850px) {
+	.cart .house-description img {
+		width: calc(100vw - 2.5cm);
+		height: calc((100vw - 2.5cm) / 16 * 9);
+	}
+}
+
+@media (max-width: 500px) {
+	.cart .house-description img {
+		margin-right: 0;
+	}
 }
