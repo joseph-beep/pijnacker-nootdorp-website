@@ -595,6 +595,15 @@ footer {
 		margin-top: 1cm;
 		margin-right: auto
 	}
+
+	.details-container .slide-button img {
+		height: 1cm
+	}
+
+	.details-container .slide img {
+		/* height: 100%; */
+		max-width: 100%;
+	}
 }
 
 .full-form {
