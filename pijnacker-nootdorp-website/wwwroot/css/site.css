@@ -534,7 +534,7 @@ footer {
 
 .full-form {
 	display: block;
-	padding-top: 8cm;
+	padding-top: 3cm;
 	padding-left: 4cm;
 	padding-right: 4cm;
 	padding-bottom: 0cm;
@@ -551,11 +551,11 @@ footer {
 		display: flex;
 		flex-wrap: wrap;
 		padding: 0.25cm;
-		height: 2cm;
+		height: 1cm;
 	}
 
 	.full-form label {
-		font-size: 1cm;
+		font-size: 0.4cm;
 		padding-right: 2cm;
 	}
 
@@ -590,49 +590,44 @@ footer {
 		display: flex;
 	}
 
-	.full-form label {
-		font-size: 1cm;
-		padding-right: 2cm;
-	}
-
 	.full-form input[type=text] {
-		width: calc(100% - 3cm);
+		width: calc(100% - 2cm);
 		height: 100%;
 		border: none;
-		border-radius: 0.5cm;
-		font-size: 1cm;
-		padding-left: 1cm;
-		padding-right: 1cm;
+		border-radius: 0.2cm;
+		font-size: 0.4cm;
+		padding-left: 0.5cm;
+		padding-right: 0.5cm;
 		background-color: #eee;
 	}
 
 	.full-form input[type=password] {
-		width: calc(100% - 3cm);
+		width: calc(100% - 2cm);
 		height: 100%;
 		border: none;
-		border-radius: 0.5cm;
-		font-size: 1cm;
-		padding-left: 1cm;
-		padding-right: 1cm;
+		border-radius: 0.2cm;
+		font-size: 0.4cm;
+		padding-left: 0.5cm;
+		padding-right: 0.5cm;
 		background-color: #eee;
 	}
 
 	.full-form input[type=email] {
-		width: calc(100% - 3cm);
+		width: calc(100% - 2cm);
 		height: 100%;
 		border: none;
-		border-radius: 0.5cm;
-		font-size: 1cm;
-		padding-left: 1cm;
-		padding-right: 1cm;
+		border-radius: 0.2cm;
+		font-size: 0.4cm;
+		padding-left: 0.5cm;
+		padding-right: 0.5cm;
 		background-color: #eee;
 	}
 
 	.full-form input[type=submit] {
 		height: 100%;
 		border: none;
-		border-radius: 0.5cm;
-		font-size: 1cm;
+		border-radius: 0.2cm;
+		font-size: 0.4cm;
 		margin-left: 0;
 		background-color: var(--blue);
 		color: white;
@@ -641,13 +636,13 @@ footer {
 
 	.full-form textarea {
 		resize: none;
-		width: calc(100% - 3cm);
+		width: calc(100% - 2cm);
 		height: 20cm;
-		font-size: 1cm;
+		font-size: 0.4cm;
 		border: none;
 		background-color: #eee;
-		border-radius: 0.5cm;
-		padding: 1cm;
+		border-radius: 0.2cm;
+		padding: 0.5cm;
 		font-family: 'Ubuntu';
 	}
 
