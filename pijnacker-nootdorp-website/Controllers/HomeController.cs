@@ -220,6 +220,7 @@ namespace pijnacker_nootdorp_website.Controllers
         {
             _context.Orders.Remove(_context.Orders.FirstOrDefault(u => Website.User.Id == u.UserId));
             _context.Orders.Add(new Order { UserId = Website.User.Id });
+
             _context.SaveChanges();
 
             return Redirect("/");
@@ -234,6 +235,11 @@ namespace pijnacker_nootdorp_website.Controllers
             }
             else
             {
+                if (Website.User.Order == null)
+                {
+                    Website.User.Order = _context.Orders.FirstOrDefault(x => x.UserId == Website.User.Id);
+                }
+
                 Website.User.Order.OrderItems.Add(new OrderItem
                 {
                     HouseId = houseId,
