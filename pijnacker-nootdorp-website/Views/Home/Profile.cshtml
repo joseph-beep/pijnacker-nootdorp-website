@@ -1,64 +1,153 @@
-﻿@model User
+﻿@model UserProfile
 
 @{
 	ViewData["Title"] = "Profile";
 }
 
-<h1>Profiel</h1>
+<div class="full-form">
+	<h1 style="text-align: left">Profiel</h1>
+	<div class="row">
+		<div class="one-half-cell">
+			<label>Voornaam</label>
+		</div>
+		<div class="one-half-cell">
+			<label>@Model.User.FirstName</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="one-half-cell">
+			<label>Achternaam</label>
+		</div>
+		<div class="one-half-cell">
+			<label>@Model.User.LastName</label>
+		</div>
+	</div>
+	<div class="row">
+		<div class="one-half-cell">
+			<label>Email</label>
+		</div>
+		<div class="one-half-cell">
+			<label>@Model.User.Email</label>
+		</div>
+	</div>
 
-<div class="profile">
 	<form method="post">
+		<div class="row title-container">
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<h2>Verander naam</h2>
+			</div>
+			<div class="one-third-cell"></div>
+		</div>
 		<div class="row">
-			<label>Naam:</label>
-			<input type="text" name="FirstName" value="@Model.FirstName" />
-			<input type="text" name="LastName" value="@Model.LastName" />
-			<input type="submit" value="Opslaan" />
+			<div class="one-third-cell label-container">
+				<label>Nieuw voornaam:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="text" name="NewFirstName" value="@Model.User.FirstName" />
+			</div>
+			<div class="one-third-cell"></div>
+		</div>
+		<div class="row">
+			<div class="one-third-cell label-container">
+				<label>Nieuw achternaam:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="text" name="NewLastName" value="@Model.User.LastName" />
+			</div>
+			<div class="one-third-cell"></div>
+		</div>
+		<div class="row">
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<input type="submit" value="Opslaan" />
+			</div>
 		</div>
 	</form>
 
-	<hr />
-
 	<form method="post">
-		<div class="row">
-			<h2>Email</h2>
+		<div class="row title-container" ">
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<h2>Verander email</h2>
+			</div>
+			<div class="one-third-cell"></div>
 		</div>
 		<div class="row">
-			<label class="one-fourth-cell">Oude email:</label>
-			<input class="one-half-cell" type="text" name="Email" />
+			<div class="one-third-cell label-container">
+				<label>Nieuwe email:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="email" name="NewEmail" value="@Model.NewEmail" />
+			</div>
+			<div class="one-third-cell"></div>
 		</div>
 		<div class="row">
-			<label class="one-fourth-cell">Nieuwe email:</label>
-			<input class="one-half-cell" type="text" name="Email" />
+			<div class="one-third-cell label-container">
+				<label>Herhaal nieuwe email:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="email" name="RepeatedNewEmail" value="@Model.RepeatedNewEmail" />
+			</div>
+			<div class="one-third-cell"></div>
 		</div>
 		<div class="row">
-			<label class="one-fourth-cell">Herhaal nieuwe email:</label>
-			<input class="one-half-cell" type="text" name="Email" />
+			<div class="one-third-cell label-container">
+				<label>Wachtwoord:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="password" name="PasswordEmail" value="@Model.PasswordEmail" />
+			</div>
+			<div class="one-third-cell"></div>
 		</div>
 		<div class="row">
-			<input class="one-fourth-cell" type="submit" value="Opslaan" />
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<input type="submit" value="Opslaan" />
+			</div>
 		</div>
 	</form>
 
-	<hr />
-
 	<form method="post">
-		<div class="row">
-			<h2>Wachtwoord</h2>
+		<div class="row title-container" ">
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<h2>Verander wachtwoord</h2>
+			</div>
+			<div class="one-third-cell"></div>
 		</div>
 		<div class="row">
-			<label>Oud wachtwoord:</label>
-			<input type="text" name="Password" />
+			<div class="one-third-cell label-container">
+				<label>Oude wachtwoord:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="password" name="OldPassword" autocomplete="off" value="@Model.OldPassword" />
+			</div>
+			<div class="one-third-cell"></div>
 		</div>
 		<div class="row">
-			<label>Nieuw wachtwoord:</label>
-			<input type="text" name="Password" />
+			<div class="one-third-cell label-container">
+				<label>Nieuwe wachtwoord:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="password" name="NewPassword" autocomplete="off" value="@Model.NewPassword" />
+			</div>
+			<div class="one-third-cell"></div>
 		</div>
 		<div class="row">
-			<label>Herhaal nieuw wachtwoord:</label>
-			<input type="text" name="Password" />
+			<div class="one-third-cell label-container">
+				<label>Herhaal nieuwe wachtwoord:</label>
+			</div>
+			<div class="one-third-cell">
+				<input type="password" name="RepeatedNewPassword" autocomplete="off" value="@Model.RepeatedNewPassword" />
+			</div>
+			<div class="one-third-cell"></div>
 		</div>
 		<div class="row">
-			<input type="submit" value="Opslaan" />
+			<div class="one-third-cell"></div>
+			<div class="one-third-cell">
+				<input type="submit" value="Opslaan" />
+			</div>
 		</div>
 	</form>
 </div>

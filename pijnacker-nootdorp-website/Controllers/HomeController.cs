@@ -156,7 +156,45 @@ namespace pijnacker_nootdorp_website.Controllers
                 return Redirect("/login-error");
             }
 
-            return View(Website.User);
+            return View(new UserProfile { User = Website.User });
+        }
+
+        [Route("profile")]
+        [HttpPost]
+        public IActionResult Profile(UserProfile profile)
+        {
+            if (!string.IsNullOrEmpty(profile.NewFirstName))
+            {
+                Website.User.FirstName = profile.NewFirstName;
+                Website.User.LastName = profile.NewLastName;
+
+                _context.Entry(Website.User).Property(x => x.FirstName).IsModified = true;
+                _context.Entry(Website.User).Property(x => x.LastName).IsModified = true;
+            }
+
+            if (!string.IsNullOrEmpty(profile.NewEmail)
+                && profile.NewEmail == profile.RepeatedNewEmail
+                && ComputeSha256Hash(profile.PasswordEmail) == Website.User.Password)
+            {
+                Website.User.Email = profile.NewEmail;
+
+                _context.Entry(Website.User).Property(x => x.Email).IsModified = true;
+            }
+
+            if (!string.IsNullOrEmpty(profile.NewPassword)
+                && profile.NewPassword == profile.RepeatedNewPassword
+                && ComputeSha256Hash(profile.OldPassword) == Website.User.Password)
+            {
+                Website.User.Password = ComputeSha256Hash(profile.NewPassword);
+
+                _context.Entry(Website.User).Property(x => x.Password).IsModified = true;
+            }
+
+            _context.SaveChanges();
+
+            profile.User = Website.User;
+
+            return View(profile);
         }
 
         [Route("cart")]
