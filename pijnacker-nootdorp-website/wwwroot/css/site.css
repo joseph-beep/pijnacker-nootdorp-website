@@ -637,7 +637,7 @@ footer {
 	.full-form textarea {
 		resize: none;
 		width: calc(100% - 2cm);
-		height: 20cm;
+		height: 10cm;
 		font-size: 0.4cm;
 		border: none;
 		background-color: #eee;
@@ -647,7 +647,7 @@ footer {
 	}
 
 	.full-form .text-area-row {
-		height: 23cm;
+		height: 11.5cm;
 	}
 
 	.full-form .centered-title {
@@ -701,8 +701,16 @@ footer {
 
 	.full-form textarea {
 		width: calc(100% - 1.5cm);
+		height: 5cm;
 	}
-}
+
+	.full-form .textarea-row {
+		padding-top: 6cm;
+	}
+
+	.full-form .textarea-validation {
+		padding-top: 5cm;
+	}
 
 .cart {
 	display: block;

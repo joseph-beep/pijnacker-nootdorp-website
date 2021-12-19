@@ -42,11 +42,11 @@
 			<div class="one-third-cell">
 				<textarea type="text" name="message" value="@Model.Message"></textarea>
 			</div>
-			<div class="one-third-cell red">
+			<div class="one-third-cell red textarea-validation">
 				@Html.ValidationMessageFor(m => m.Message)
 			</div>
 		</div>
-		<div class="row">
+		<div class="row textarea-row">
 			<div class="one-third-cell"></div>
 			<div class="one-third-cell">
 				<input class="full-input button-input" type="submit" value="Verstuur" />
