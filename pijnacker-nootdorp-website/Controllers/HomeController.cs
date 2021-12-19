@@ -205,6 +205,19 @@ namespace pijnacker_nootdorp_website.Controllers
                 return Redirect("/login-error");
             }
 
+            if (Website.User.Order == null)
+            {
+                Website.User.Order = _context.Orders.FirstOrDefault(x => x.UserId == Website.User.Id);
+
+                if (Website.User.Order == null)
+                {
+                    _context.Orders.Add(new Order { UserId = Website.User.Id });
+                    _context.SaveChanges();
+
+                    Website.User.Order = _context.Orders.FirstOrDefault(x => x.UserId == Website.User.Id);
+                }
+            }
+
             User user = Website.User;
             Order order = _context.Orders.FirstOrDefault(u => u.UserId == user.Id);
 
@@ -223,6 +236,8 @@ namespace pijnacker_nootdorp_website.Controllers
 
             _context.SaveChanges();
 
+            Website.User.Order = _context.Orders.FirstOrDefault(x => x.UserId == Website.User.Id);
+
             return Redirect("/");
         }
 
@@ -238,16 +253,27 @@ namespace pijnacker_nootdorp_website.Controllers
                 if (Website.User.Order == null)
                 {
                     Website.User.Order = _context.Orders.FirstOrDefault(x => x.UserId == Website.User.Id);
+
+                    if (Website.User.Order == null)
+                    {
+                        _context.Orders.Add(new Order { UserId = Website.User.Id });
+                        _context.SaveChanges();
+
+                        Website.User.Order = _context.Orders.FirstOrDefault(x => x.UserId == Website.User.Id);
+                    }
                 }
 
-                Website.User.Order.OrderItems.Add(new OrderItem
+                OrderItem newOrderItem = new OrderItem
                 {
                     HouseId = houseId,
                     OrderId = Website.User.Order.Id
-                });
+                };
+
+                _context.OrderItems.Add(newOrderItem);
+
                 _context.SaveChanges();
 
-                return Redirect($"/houses/{houseId}");
+                return Redirect($"/cart");
             }
         }
 
@@ -274,6 +300,8 @@ namespace pijnacker_nootdorp_website.Controllers
                 user.Password = ComputeSha256Hash(user.Password);
 
                 _context.Users.Add(user);
+                _context.SaveChanges();
+                _context.Orders.Add(new Order { UserId = user.Id });
                 _context.SaveChanges();
                 HttpContext.Session.Set("user", Encoding.ASCII.GetBytes(_context.Users.FirstOrDefault(u => u.Email == user.Email).Id.ToString()));
 
