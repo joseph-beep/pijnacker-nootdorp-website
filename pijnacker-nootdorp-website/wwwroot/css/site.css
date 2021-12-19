@@ -63,6 +63,27 @@ body {
 	.navigation a.title {
 		display: none;
 	}
+
+	.navigation {
+		flex-direction: column;
+		height: auto;
+	}
+
+		.navigation img {
+			height: 1cm;
+			width: 1cm;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.navigation a.right {
+			margin-left: 0.375cm;
+		}
+
+		.navigation a {
+			margin-top: 0.3cm;
+			text-align: center;
+		}
 }
 
 .house-list-element {
@@ -712,191 +733,191 @@ footer {
 		padding-top: 5cm;
 	}
 
-.cart {
-	display: block;
-	padding-top: 1cm;
-	padding-left: 4cm;
-	padding-right: 4cm;
-	padding-bottom: 0cm;
-	color: black;
-	border-radius: 0.5cm;
-}
-
-	.cart h1 {
-		margin: 0;
-	}
-
-	.cart .row {
-		display: flex;
-		flex-wrap: wrap;
-		padding: 0.25cm;
-	}
-
-	.cart label {
-		font-size: 1cm;
-		padding-right: 2cm;
-	}
-
-	.cart .one-half-cell {
-		flex: 0 0 50%;
-		max-width: 50%;
-	}
-
-	.cart .right {
-		text-align: right;
-	}
-
-	.cart .one-third-cell {
-		flex: 0 0 33.3%;
-		max-width: 33.3%;
-	}
-
-	.cart .two-third-cell {
-		flex: 0 0 66.6%;
-		max-width: 66.6%;
-	}
-
-	.cart .one-fourth-cell {
-		flex: 0 0 25%;
-		max-width: 25%;
-	}
-
-	.cart .three-fourth-cell {
-		flex: 0 0 75%;
-		max-width: 75%;
-	}
-
-	.cart .full-cell {
-		flex: 0 0 100%;
-		max-width: 100%;
-	}
-
-	.cart .label-container {
-		justify-content: right;
-		align-items: center;
-		display: flex;
-	}
-
-	.cart label {
-		font-size: 1.5cm;
-		padding-right: 2cm;
-	}
-
-	.cart input[type=text] {
-		width: calc(100% - 3cm);
-		height: 100%;
-		border: none;
+	.cart {
+		display: block;
+		padding-top: 1cm;
+		padding-left: 4cm;
+		padding-right: 4cm;
+		padding-bottom: 0cm;
+		color: black;
 		border-radius: 0.5cm;
-		font-size: 1cm;
-		padding-left: 1cm;
-		padding-right: 1cm;
-		background-color: #eee;
 	}
 
-	.cart input[type=password] {
-		width: calc(100% - 3cm);
-		height: 100%;
-		border: none;
-		border-radius: 0.5cm;
-		font-size: 1cm;
-		padding-left: 1cm;
-		padding-right: 1cm;
-		background-color: #eee;
-	}
-
-	.cart input[type=submit] {
-		height: 100%;
-		border: none;
-		border-radius: 0.5cm;
-		font-size: 1cm;
-		margin-left: 0;
-		background-color: var(--blue);
-		color: white;
-		width: calc(100% - 1cm);
-	}
-
-	.cart .house-description {
-	}
-
-		.cart .house-description a {
-			text-decoration: none;
-			color: black;
-		}
-
-		.cart .house-description img {
-			width: 8.9cm;
-			height: 5cm;
-			float: left;
-			margin-right: 1.5cm;
-			-webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
-			box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
-		}
-
-		.cart .house-description h1 {
-			font-size: 2.5cm;
-			font-weight: 100;
-			margin-bottom: 0;
-		}
-
-		.cart .house-description h2 {
-			font-size: 1.5cm;
-			font-weight: 100;
-			margin-top: 0;
-			margin-bottom: 0.5cm;
-		}
-
-		.cart .house-description p {
-			font-size: 1cm;
-			font-weight: 100;
-		}
-
-		.cart .house-description .icon {
-			height: 1cm;
-			width: 1cm;
-			float: none;
+		.cart h1 {
 			margin: 0;
-			-webkit-box-shadow: none;
-			box-shadow: none;
-			image-rendering: -moz-crisp-edges; /* Firefox */
-			image-rendering: -o-crisp-edges; /* Opera */
-			image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
-			image-rendering: optimize-contrast;
-			-ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
 		}
 
-	.cart .row .title {
-		font-weight: bolder;
-	}
+		.cart .row {
+			display: flex;
+			flex-wrap: wrap;
+			padding: 0.25cm;
+		}
 
-	.cart .pay-button {
-		text-align: right;
-		text-decoration: none;
-		color: white;
-		background-color: var(--blue);
-		padding: 1cm;
-		border-radius: 0.5cm;
-		padding-left: 2cm;
-		padding-right: 2cm;
-	}
+		.cart label {
+			font-size: 1cm;
+			padding-right: 2cm;
+		}
 
-	.cart .continue-shopping-button {
-		text-align: right;
-		text-decoration: none;
-		color: white;
-		background-color: var(--red);
-		padding: 1cm;
-		border-radius: 0.5cm;
-		padding-left: 2cm;
-		padding-right: 2cm;
-	}
+		.cart .one-half-cell {
+			flex: 0 0 50%;
+			max-width: 50%;
+		}
 
-	.cart .pay-button-row {
-		height: 8cm;
-		align-items: center;
-	}
+		.cart .right {
+			text-align: right;
+		}
 
-.header-title {
-	padding-top: 9cm;
-	padding-left: 4cm;
-	margin-bottom: 0;
-}
+		.cart .one-third-cell {
+			flex: 0 0 33.3%;
+			max-width: 33.3%;
+		}
+
+		.cart .two-third-cell {
+			flex: 0 0 66.6%;
+			max-width: 66.6%;
+		}
+
+		.cart .one-fourth-cell {
+			flex: 0 0 25%;
+			max-width: 25%;
+		}
+
+		.cart .three-fourth-cell {
+			flex: 0 0 75%;
+			max-width: 75%;
+		}
+
+		.cart .full-cell {
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+
+		.cart .label-container {
+			justify-content: right;
+			align-items: center;
+			display: flex;
+		}
+
+		.cart label {
+			font-size: 1.5cm;
+			padding-right: 2cm;
+		}
+
+		.cart input[type=text] {
+			width: calc(100% - 3cm);
+			height: 100%;
+			border: none;
+			border-radius: 0.5cm;
+			font-size: 1cm;
+			padding-left: 1cm;
+			padding-right: 1cm;
+			background-color: #eee;
+		}
+
+		.cart input[type=password] {
+			width: calc(100% - 3cm);
+			height: 100%;
+			border: none;
+			border-radius: 0.5cm;
+			font-size: 1cm;
+			padding-left: 1cm;
+			padding-right: 1cm;
+			background-color: #eee;
+		}
+
+		.cart input[type=submit] {
+			height: 100%;
+			border: none;
+			border-radius: 0.5cm;
+			font-size: 1cm;
+			margin-left: 0;
+			background-color: var(--blue);
+			color: white;
+			width: calc(100% - 1cm);
+		}
+
+		.cart .house-description {
+		}
+
+			.cart .house-description a {
+				text-decoration: none;
+				color: black;
+			}
+
+			.cart .house-description img {
+				width: 8.9cm;
+				height: 5cm;
+				float: left;
+				margin-right: 1.5cm;
+				-webkit-box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+				box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.15);
+			}
+
+			.cart .house-description h1 {
+				font-size: 2.5cm;
+				font-weight: 100;
+				margin-bottom: 0;
+			}
+
+			.cart .house-description h2 {
+				font-size: 1.5cm;
+				font-weight: 100;
+				margin-top: 0;
+				margin-bottom: 0.5cm;
+			}
+
+			.cart .house-description p {
+				font-size: 1cm;
+				font-weight: 100;
+			}
+
+			.cart .house-description .icon {
+				height: 1cm;
+				width: 1cm;
+				float: none;
+				margin: 0;
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				image-rendering: -moz-crisp-edges; /* Firefox */
+				image-rendering: -o-crisp-edges; /* Opera */
+				image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+				image-rendering: optimize-contrast;
+				-ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+			}
+
+		.cart .row .title {
+			font-weight: bolder;
+		}
+
+		.cart .pay-button {
+			text-align: right;
+			text-decoration: none;
+			color: white;
+			background-color: var(--blue);
+			padding: 1cm;
+			border-radius: 0.5cm;
+			padding-left: 2cm;
+			padding-right: 2cm;
+		}
+
+		.cart .continue-shopping-button {
+			text-align: right;
+			text-decoration: none;
+			color: white;
+			background-color: var(--red);
+			padding: 1cm;
+			border-radius: 0.5cm;
+			padding-left: 2cm;
+			padding-right: 2cm;
+		}
+
+		.cart .pay-button-row {
+			height: 8cm;
+			align-items: center;
+		}
+
+	.header-title {
+		padding-top: 9cm;
+		padding-left: 4cm;
+		margin-bottom: 0;
+	}
